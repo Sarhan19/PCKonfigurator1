@@ -106,6 +106,7 @@
     <Compile Include="Grafikkarte.cs" />
     <Compile Include="IProdukt.cs" />
     <Compile Include="Konfiguration.cs" />
+    <Compile Include="moin.cs" />
     <Compile Include="Netzteil.cs" />
     <Compile Include="Produkt.cs" />
     <Compile Include="Prozessorlüfter.cs" />
