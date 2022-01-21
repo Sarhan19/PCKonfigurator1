@@ -109,6 +109,7 @@
     <Compile Include="Netzteil.cs" />
     <Compile Include="Produkt.cs" />
     <Compile Include="Prozessorlüfter.cs" />
+    <Compile Include="RandomGithubKlasse.cs" />
     <Compile Include="SATA.cs" />
     <Compile Include="SSD.cs" />
     <Page Include="Bauteile_Seite.xaml">
@@ -186,15 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Mainboard.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DBPCKonfig.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DBPCKonfig_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DBPCKonfig.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
