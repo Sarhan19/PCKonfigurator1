@@ -1,0 +1,14 @@
+﻿<Page x:Class="PCKonfigurator.Bauteile_Seite"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PCKonfigurator"
+      mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="1000" Title="Bauteile_Seite">
+
+    <Grid Width="1000" Height="520" Name="BauteilGrid" Background="Gray">
+        <TextBlock Name="TxtBlkBauteil" Background="LightGray" Width="1000" Height="30" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"  Text=" Überschrift" Margin="0,5,0,0"/>
+        <ListBox Name="LstBxBauteile" Width="1000" Height="400"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray"></ListBox>        
+    </Grid>
+</Page>
