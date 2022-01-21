@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Data.SqlClient;
+using System.Data;
+
 namespace PCKonfigurator
 {
     /// <summary>
@@ -20,6 +23,7 @@ namespace PCKonfigurator
     /// </summary>
     public partial class Bauteile_Seite : Page
     {
+        List<CPU> CPUs = new List<CPU>();
         public Bauteile_Seite()
         {
             InitializeComponent();
@@ -27,10 +31,51 @@ namespace PCKonfigurator
 
         public void TabelleAnzeigen(string tabellenname)
         {
-            TxtBlkBauteil.Text = " "+tabellenname;
-            LstBxBauteile.Items.Add(" Moin");
-            LstBxBauteile.Items.Add(" Hallo");
-            LstBxBauteile.Items.Add(" Servus");
+            TxtBlkBauteil.Text = " " + tabellenname;
+            if (tabellenname != "CPU")
+            {
+                LstBxBauteile.Items.Add(" Moin");
+                LstBxBauteile.Items.Add(" Hallo");
+                LstBxBauteile.Items.Add(" Servus");
+            }
+            else
+            {
+                CPUs.Clear();
+                LstBxBauteile.ItemsSource = CPUs;
+                GetCPUList();
+                LstBxBauteile.ItemsSource = CPUs;
+            }
+            
+        }
+
+        public void GetCPUList()
+        {
+            CPUs.Clear();
+            using (var connection = new SqlConnection(Properties.Settings.Default.DBPCTeileConnectionString))
+            using (var cmd = connection.CreateCommand())
+            {
+                connection.Open();
+                cmd.CommandText = "SELECT * FROM CPU"; // update select command accordingly
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        CPU cpu = new CPU(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6));
+                        CPUs.Add(cpu);
+                        Console.WriteLine(reader.GetInt32(0));
+                    }
+                    reader.Close();
+                }
+
+            }
+        }
+
+        private void load_List()
+        {
+            CPUs.Clear();
+            LstBxBauteile.ItemsSource = CPUs;
+            GetCPUList();
+            LstBxBauteile.ItemsSource = CPUs;
         }
     }
 }

@@ -11,6 +11,6 @@ namespace PCKonfigurator
         public Int32 ID;
         public String Hersteller;
         public String Typ;
-        public Int16 Preis;
+        public decimal Preis;
     }
 }

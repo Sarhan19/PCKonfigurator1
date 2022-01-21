@@ -9,14 +9,14 @@ namespace PCKonfigurator
     class CPU : Produkt
     {
         internal String Sockel;
-        internal SByte Kerne;
+        internal Int32 Kerne;
         internal String Name;
 
         public CPU()
         {
         }
 
-        public CPU(Int32 _id, String _hersteller, String _typ, Int16 _preis, String _sockel, SByte _kerne, String _name)
+        public CPU(Int32 _id, String _hersteller, String _typ, decimal _preis, String _sockel, Int32 _kerne, String _name)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;
@@ -25,6 +25,11 @@ namespace PCKonfigurator
             this.Sockel = _sockel;
             this.Kerne = _kerne;
             this.Name = _name;
+        }
+
+        public override string ToString()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t\t" + Preis + "€\t" + Sockel + "\t" + Kerne + "\t" + Name;
         }
     }
 }
