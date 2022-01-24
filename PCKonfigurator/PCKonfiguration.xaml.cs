@@ -44,8 +44,7 @@ namespace PCKonfigurator
         private void Mainboard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Mainboard_Page = new Bauteile_Seite();
-            Mainboard_Page.TabelleAnzeigen("Mainboard", connection);
-            //MidGridFrame.Content = Mainboard_Page;
+            Mainboard_Page.TabelleAnzeigen("Mainboard", connection);            
             MidGridFrame.NavigationService.Navigate(Mainboard_Page);
         }
 
@@ -53,7 +52,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite CPU_Page = new Bauteile_Seite();
             CPU_Page.TabelleAnzeigen("CPU", connection);
-            //MidGridFrame.Content = CPU_Page;
             MidGridFrame.NavigationService.Navigate(CPU_Page);
         }
 
@@ -61,7 +59,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Grafikkarte_Page = new Bauteile_Seite();
             Grafikkarte_Page.TabelleAnzeigen("Grafikkarte", connection);
-            //MidGridFrame.Content = Grafikkarte_Page;
             MidGridFrame.NavigationService.Navigate(Grafikkarte_Page);
         }
 
@@ -69,7 +66,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Prozessorlüfter_Page = new Bauteile_Seite();
             Prozessorlüfter_Page.TabelleAnzeigen("Prozessorlüfter", connection);
-            //MidGridFrame.Content = Prozessorlüfter_Page;
             MidGridFrame.NavigationService.Navigate(Prozessorlüfter_Page);
         }
 
@@ -77,7 +73,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Arbeitsspeicher_Page = new Bauteile_Seite();
             Arbeitsspeicher_Page.TabelleAnzeigen("Arbeitsspeicher", connection);
-            //MidGridFrame.Content = Arbeitsspeicher_Page;
             MidGridFrame.NavigationService.Navigate(Arbeitsspeicher_Page);
         }
 
@@ -85,7 +80,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Festplatte_Page = new Bauteile_Seite();
             Festplatte_Page.TabelleAnzeigen("Festplatte", connection);
-            //MidGridFrame.Content = Festplatte_Page;
             MidGridFrame.NavigationService.Navigate(Festplatte_Page);
         }
 
@@ -93,7 +87,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Gehäuse_Page = new Bauteile_Seite();
             Gehäuse_Page.TabelleAnzeigen("Gehäuse", connection);
-            //MidGridFrame.Content = Gehäuse_Page;
             MidGridFrame.NavigationService.Navigate(Gehäuse_Page);
         }
 
@@ -101,7 +94,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Gehäuselüfter_Page = new Bauteile_Seite();
             Gehäuselüfter_Page.TabelleAnzeigen("Gehäuselüfter", connection);
-            //MidGridFrame.Content = Gehäuselüfter_Page;
             MidGridFrame.NavigationService.Navigate(Gehäuselüfter_Page);
         }
 
@@ -109,7 +101,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Netzteil_Page = new Bauteile_Seite();
             Netzteil_Page.TabelleAnzeigen("Netzteil", connection);
-            //MidGridFrame.Content = Netzteil_Page;
             MidGridFrame.NavigationService.Navigate(Netzteil_Page);
         }
 
@@ -117,7 +108,6 @@ namespace PCKonfigurator
         {
             Bauteile_Seite Betriebssystem_Page = new Bauteile_Seite();
             Betriebssystem_Page.TabelleAnzeigen("Betriebssystem", connection);
-            //MidGridFrame.Content = Betriebssystem_Page;
             MidGridFrame.NavigationService.Navigate(Betriebssystem_Page);
         }
 
@@ -129,57 +119,109 @@ namespace PCKonfigurator
         }
 
         private void BauteileAktualisieren()
-        {   
+        {
+            decimal gesamtpreis = 0;
             if(konfiguration.Cpu != null)
             {
                 CPUBeschreibung.Text = $"{konfiguration.Cpu.Hersteller} {konfiguration.Cpu.Typ}\n{konfiguration.Cpu.Name}";
                 CPUBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.Cpu.Preis;
+            }
+            else
+            {
+                CPUBeschreibung.Text = "";
             }
             if(konfiguration.ArbeitsSpeicher != null)
             {
                 ArbeitsspeicherBeschreibung.Text = $"{konfiguration.ArbeitsSpeicher.Hersteller} {konfiguration.ArbeitsSpeicher.Typ}\n{konfiguration.ArbeitsSpeicher.Speicherkapazität}";
                 ArbeitsspeicherBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.ArbeitsSpeicher.Preis;
             }
-            if(konfiguration.BetriebsSystem != null)
+            else
+            {
+                ArbeitsspeicherBeschreibung.Text = "";
+            }
+            if (konfiguration.BetriebsSystem != null)
             {
                 BetriebssystemBeschreibung.Text = $"{konfiguration.BetriebsSystem.Hersteller} {konfiguration.BetriebsSystem.Typ}\n{konfiguration.BetriebsSystem.Architektur}";
                 BetriebssystemBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.BetriebsSystem.Preis;
             }
-            if(konfiguration.FestPlatte != null)
+            else
+            {
+                BetriebssystemBeschreibung.Text = "";
+            }
+            if (konfiguration.FestPlatte != null)
             {
                 FestplatteBeschreibung.Text = $"{konfiguration.FestPlatte.Hersteller} {konfiguration.FestPlatte.Typ}\n{konfiguration.FestPlatte.Kapazität}";
                 FestplatteBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.FestPlatte.Preis;
             }
-            if(konfiguration.GeHäuse != null)
+            else
+            {
+                FestplatteBeschreibung.Text = "";
+            }
+            if (konfiguration.GeHäuse != null)
             {
                 GehäuseBeschreibung.Text = $"{konfiguration.GeHäuse.Hersteller} {konfiguration.GeHäuse.Typ}\n{konfiguration.GeHäuse.Farbe}";
                 GehäuseBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.GeHäuse.Preis;
             }
-            if(konfiguration.GehäuseLüfter != null)
+            else
+            {
+                GehäuseBeschreibung.Text = "";
+            }
+            if (konfiguration.GehäuseLüfter != null)
             {
                 GehäuselüfterBeschreibung.Text = $"{konfiguration.GehäuseLüfter.Hersteller} {konfiguration.GehäuseLüfter.Typ}\n{konfiguration.GehäuseLüfter.Farbe}";
                 GehäuselüfterBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.GehäuseLüfter.Preis;
             }
-            if(konfiguration.GrafikKarte != null)
+            else
+            {
+                GehäuselüfterBeschreibung.Text = "";
+            }
+            if (konfiguration.GrafikKarte != null)
             {
                 GrafikkarteBeschreibung.Text = $"{konfiguration.GrafikKarte.Hersteller} {konfiguration.GrafikKarte.Typ}\n{konfiguration.GrafikKarte.Grafikchip}";
                 GrafikkarteBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.GrafikKarte.Preis;
             }
-            if(konfiguration.MainBoard != null)
+            else
+            {
+                GrafikkarteBeschreibung.Text = "";
+            }
+            if (konfiguration.MainBoard != null)
             {
                 MainboardBeschreibung.Text = $"{konfiguration.MainBoard.Hersteller} {konfiguration.MainBoard.Typ}\n{konfiguration.MainBoard.Formfaktor}";
                 MainboardBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.MainBoard.Preis;
             }
-            if(konfiguration.NetzTeil != null)
+            else
+            {
+                MainboardBeschreibung.Text = "";
+            }
+            if (konfiguration.NetzTeil != null)
             {
                 NetzteilBeschreibung.Text = $"{konfiguration.NetzTeil.Hersteller} {konfiguration.NetzTeil.Typ}\n{konfiguration.NetzTeil.Leistung}";
                 NetzteilBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.NetzTeil.Preis;
             }
-            if(konfiguration.ProzessorLüfter != null)
+            else
+            {
+                NetzteilBeschreibung.Text = "";
+            }
+            if (konfiguration.ProzessorLüfter != null)
             {
                 ProzessorlüfterBeschreibung.Text = $"{konfiguration.ProzessorLüfter.Hersteller} {konfiguration.ProzessorLüfter.Typ}\n{konfiguration.ProzessorLüfter.Kühlungsart}";
                 ProzessorlüfterBeschreibung.TextAlignment = TextAlignment.Center;
+                gesamtpreis += konfiguration.ProzessorLüfter.Preis;
             }
+            else
+            {
+                ProzessorlüfterBeschreibung.Text = "";
+            }            
+            GesamtPreis.Text = Convert.ToString(gesamtpreis);
         }
 
         public void KonfigSchreiben(object add)
@@ -230,7 +272,15 @@ namespace PCKonfigurator
                 // do nothing
             }
             BauteileAktualisieren();
+
         }
+
+        private void BtnKonfigurationZurücksetzen_Click(object sender, RoutedEventArgs e)
+        {
+            konfiguration = new Konfiguration();
+            BauteileAktualisieren();
+        }
+        
     }
 
 }
