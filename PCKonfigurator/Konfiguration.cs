@@ -18,7 +18,7 @@ namespace PCKonfigurator
         Gehäuselüfter gehäuselüfter;
         Netzteil netzteil;
         Betriebssystem betriebssystem;
-        public Int16 Preis;
+        Int16 Preis;
 
         public CPU Cpu
         {
@@ -58,7 +58,7 @@ namespace PCKonfigurator
 
         public Arbeitsspeicher ArbeitsSpeicher
         {
-            
+
             get
             {
                 return arbeitsspeicher;
@@ -97,7 +97,7 @@ namespace PCKonfigurator
         {
             get
             {
-                 return gehäuse;
+                return gehäuse;
             }
             set
             {
@@ -113,7 +113,7 @@ namespace PCKonfigurator
             }
             set
             {
-                                this.gehäuselüfter = value;
+                this.gehäuselüfter = value;
             }
         }
 
@@ -145,7 +145,7 @@ namespace PCKonfigurator
         {
         }
 
-        public Konfiguration(CPU _cpu, Mainboard _mainboard, Prozessorlüfter _prozessorlüfter, Arbeitsspeicher _arbeitsspeicher, Grafikkarte _grafikkarte, Festplatte _festplatte, Gehäuse _gehäuse, Gehäuselüfter _gehäuselüfter, Netzteil _netzteil, Betriebssystem _betriebssystem)
+        internal Konfiguration(CPU _cpu, Mainboard _mainboard, Prozessorlüfter _prozessorlüfter, Arbeitsspeicher _arbeitsspeicher, Grafikkarte _grafikkarte, Festplatte _festplatte, Gehäuse _gehäuse, Gehäuselüfter _gehäuselüfter, Netzteil _netzteil, Betriebssystem _betriebssystem)
         {
             this.cpu = _cpu;
             this.mainboard = _mainboard;

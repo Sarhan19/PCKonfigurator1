@@ -24,13 +24,15 @@ namespace PCKonfigurator
     public partial class Bauteile_Seite : Page
     {
         List<CPU> CPUs = new List<CPU>();
+        private SqlConnection connection;
         public Bauteile_Seite()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
-        public void TabelleAnzeigen(string tabellenname)
+        public void TabelleAnzeigen(string tabellenname, SqlConnection _connection)
         {
+            connection = _connection;
             TxtBlkBauteil.Text = " " + tabellenname;
             if (tabellenname != "CPU")
             {
@@ -40,13 +42,14 @@ namespace PCKonfigurator
             }
             else
             {
-                CPUs.Clear();
-                LstBxBauteile.ItemsSource = CPUs;
+                CPUs.Clear();                
+                LstBxBauteile.ItemsSource = CPUs;                
                 GetCPUList();
-                LstBxBauteile.ItemsSource = CPUs;
+                LstBxBauteile.ItemsSource = CPUs;                
             }
             
         }
+
 
         public void GetCPUList()
         {
@@ -70,12 +73,23 @@ namespace PCKonfigurator
             }
         }
 
-        private void load_List()
+
+        private void Add_Bauteil()
         {
-            CPUs.Clear();
-            LstBxBauteile.ItemsSource = CPUs;
-            GetCPUList();
-            LstBxBauteile.ItemsSource = CPUs;
+            object addition = LstBxBauteile.SelectedItem;            
+            WindowCollection windows = new WindowCollection();
+            windows = Application.Current.Windows;
+            Window[] winds = new Window[2];
+            windows.CopyTo(winds, 0);
+            PCKonfiguration oldWindow = (PCKonfiguration)winds[0];
+            oldWindow.KonfigSchreiben(addition);
+            MessageBox.Show("Neues Bauteil ausgewählt!");
+        }
+        
+
+        private void LstBxBauteile_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Add_Bauteil();
         }
     }
 }
