@@ -23,14 +23,15 @@ namespace PCKonfigurator
     /// </summary>
     public partial class Bauteile_Seite : Page
     {
-        List<CPU> CPUs = new List<CPU>();        
+        List<CPU> CPUs = new List<CPU>();
         public Bauteile_Seite()
         {
             InitializeComponent();            
         }
 
-        public void TabelleAnzeigen(string tabellenname)
+        public void TabelleAnzeigen(string tabellenname, SqlConnection _connection)
         {
+            connection = _connection;
             TxtBlkBauteil.Text = " " + tabellenname;
             if (tabellenname != "CPU")
             {
@@ -52,10 +53,8 @@ namespace PCKonfigurator
         public void GetCPUList()
         {
             CPUs.Clear();
-            using (var connection = new SqlConnection(Properties.Settings.Default.DBPCTeileConnectionString))
             using (var cmd = connection.CreateCommand())
             {
-                connection.Open();
                 cmd.CommandText = "SELECT * FROM CPU"; // update select command accordingly
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -63,30 +62,27 @@ namespace PCKonfigurator
                     {
                         CPU cpu = new CPU(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6));
                         CPUs.Add(cpu);
-                        Console.WriteLine(reader.GetInt32(0));
                     }
-                    reader.Close();
                 }
-
             }
         }
+        //public SqlConnection connection;
+        //public void OpenConnection()
+        //{
+        //    connection = new SqlConnection(Properties.Settings.Default.DBPCTeileConnectionString);
+        //    connection.Open();
+        //}
+        //public void CloseConnection()
+        //{
+        //    connection.Close();
+        //}
 
-
-        private void Add_Bauteil()
+        private void load_List()
         {
-            object addition = LstBxBauteile.SelectedItem;            
-            WindowCollection windows = new WindowCollection();
-            windows = Application.Current.Windows;
-            Window[] winds = new Window[2];
-            windows.CopyTo(winds, 0);
-            PCKonfiguration oldWindow = (PCKonfiguration)winds[0];
-            oldWindow.KonfigSchreiben(addition);
-        }
-        
-
-        private void LstBxBauteile_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Add_Bauteil();
+            CPUs.Clear();
+            LstBxBauteile.ItemsSource = CPUs;
+            GetCPUList();
+            LstBxBauteile.ItemsSource = CPUs;
         }
     }
 }
