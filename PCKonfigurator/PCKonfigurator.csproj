@@ -109,13 +109,10 @@
     <Compile Include="Gehäuse.cs" />
     <Compile Include="Gehäuselüfter.cs" />
     <Compile Include="Grafikkarte.cs" />
-    <Compile Include="IProdukt.cs" />
     <Compile Include="Konfiguration.cs" />
-    <Compile Include="moin.cs" />
     <Compile Include="Netzteil.cs" />
     <Compile Include="Produkt.cs" />
     <Compile Include="Prozessorlüfter.cs" />
-    <Compile Include="RandomGithubKlasse.cs" />
     <Compile Include="SATA.cs" />
     <Compile Include="SSD.cs" />
     <Page Include="Bauteile_Seite.xaml">

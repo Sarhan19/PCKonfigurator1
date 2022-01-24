@@ -19,11 +19,29 @@ namespace PCKonfigurator
     /// </summary>
     public partial class PCKonfiguration : Window
     {
+        internal Konfiguration konfiguration;
+
         public PCKonfiguration()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            konfiguration = new Konfiguration();
+        }
+
+        
+        private Konfiguration konfigurationZurückgeben()
+        {
+            return this.konfiguration;
+        }
+
+        public void konfigLol()
+        {
+            konfigurationZurückgeben();
         }
         
+        //public void konfigZurückgeben(object)
+        //{
+        //    this.konfiguration;
+        //}
 
         //private void TabelleAnzeigen(string tabellenname)
         //{
@@ -47,6 +65,7 @@ namespace PCKonfigurator
         //    //conn.Close();
         //}
 
+        
 
         private void Mainboard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -129,9 +148,116 @@ namespace PCKonfigurator
         }
 
         
+
+        
         private void PackIcon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MidGridFrame.Content = null;
+            //BauteileAktualisieren();
+        }
+
+        private void BauteileAktualisieren()
+        {   
+            if(konfiguration.Cpu != null)
+            {
+                CPUBeschreibung.Text = $"{konfiguration.Cpu.Hersteller} {konfiguration.Cpu.Typ}\n{konfiguration.Cpu.Name}";
+                CPUBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.ArbeitsSpeicher != null)
+            {
+                ArbeitsspeicherBeschreibung.Text = $"{konfiguration.ArbeitsSpeicher.Hersteller} {konfiguration.ArbeitsSpeicher.Typ}\n{konfiguration.ArbeitsSpeicher.Speicherkapazität}";
+                ArbeitsspeicherBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.BetriebsSystem != null)
+            {
+                BetriebssystemBeschreibung.Text = $"{konfiguration.BetriebsSystem.Hersteller} {konfiguration.BetriebsSystem.Typ}\n{konfiguration.BetriebsSystem.Architektur}";
+                BetriebssystemBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.FestPlatte != null)
+            {
+                FestplatteBeschreibung.Text = $"{konfiguration.FestPlatte.Hersteller} {konfiguration.FestPlatte.Typ}\n{konfiguration.FestPlatte.Kapazität}";
+                FestplatteBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.GeHäuse != null)
+            {
+                GehäuseBeschreibung.Text = $"{konfiguration.GeHäuse.Hersteller} {konfiguration.GeHäuse.Typ}\n{konfiguration.GeHäuse.Farbe}";
+                GehäuseBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.GehäuseLüfter != null)
+            {
+                GehäuselüfterBeschreibung.Text = $"{konfiguration.GehäuseLüfter.Hersteller} {konfiguration.GehäuseLüfter.Typ}\n{konfiguration.GehäuseLüfter.Farbe}";
+                GehäuselüfterBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.GrafikKarte != null)
+            {
+                GrafikkarteBeschreibung.Text = $"{konfiguration.GrafikKarte.Hersteller} {konfiguration.GrafikKarte.Typ}\n{konfiguration.GrafikKarte.Grafikchip}";
+                GrafikkarteBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.MainBoard != null)
+            {
+                MainboardBeschreibung.Text = $"{konfiguration.MainBoard.Hersteller} {konfiguration.MainBoard.Typ}\n{konfiguration.MainBoard.Formfaktor}";
+                MainboardBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.NetzTeil != null)
+            {
+                NetzteilBeschreibung.Text = $"{konfiguration.NetzTeil.Hersteller} {konfiguration.NetzTeil.Typ}\n{konfiguration.NetzTeil.Leistung}";
+                NetzteilBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+            if(konfiguration.ProzessorLüfter != null)
+            {
+                ProzessorlüfterBeschreibung.Text = $"{konfiguration.ProzessorLüfter.Hersteller} {konfiguration.ProzessorLüfter.Typ}\n{konfiguration.ProzessorLüfter.Kühlungsart}";
+                ProzessorlüfterBeschreibung.TextAlignment = TextAlignment.Center;
+            }
+        }
+
+        public void KonfigSchreiben(object add)
+        {
+            Type type = add.GetType();
+            if (type == typeof(CPU))
+            {
+                konfiguration.Cpu = (CPU)add;
+            }
+            else if (type == typeof(Arbeitsspeicher))
+            {
+                konfiguration.ArbeitsSpeicher = (Arbeitsspeicher)add;
+            }
+            else if (type == typeof(Betriebssystem))
+            {
+                konfiguration.BetriebsSystem = (Betriebssystem)add;
+            }
+            else if(type == typeof(Festplatte))
+            {
+                konfiguration.FestPlatte = (Festplatte)add;
+            }
+            else if(type == typeof(Gehäuse))
+            {
+                konfiguration.GeHäuse = (Gehäuse)add;
+            }
+            else if(type == typeof(Gehäuselüfter))
+            {
+                konfiguration.GehäuseLüfter = (Gehäuselüfter)add;
+            }
+            else if(type == typeof(Grafikkarte))
+            {
+                konfiguration.GrafikKarte = (Grafikkarte)add;
+            }
+            else if(type == typeof(Mainboard))
+            {
+                konfiguration.MainBoard = (Mainboard)add;
+            }
+            else if(type == typeof(Prozessorlüfter))
+            {
+                konfiguration.ProzessorLüfter = (Prozessorlüfter)add;
+            }
+            else if(type == typeof(Netzteil))
+            {
+                konfiguration.NetzTeil = (Netzteil)add;
+            }
+            else
+            {
+                // do nothing
+            }
+            BauteileAktualisieren();
         }
     }
 

@@ -9,6 +9,6 @@
 
     <Grid Width="1000" Height="520" Name="BauteilGrid" Background="Gray">
         <TextBlock Name="TxtBlkBauteil" Background="LightGray" Width="1000" Height="30" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"  Text=" Überschrift" Margin="0,5,0,0"/>
-        <ListBox Name="LstBxBauteile" Width="1000" Height="400"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray"></ListBox>        
+        <ListBox Name="LstBxBauteile" Width="1000" Height="400"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray" SelectionChanged="LstBxBauteile_SelectionChanged" ></ListBox>        
     </Grid>
 </Page>

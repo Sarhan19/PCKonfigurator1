@@ -23,10 +23,10 @@ namespace PCKonfigurator
     /// </summary>
     public partial class Bauteile_Seite : Page
     {
-        List<CPU> CPUs = new List<CPU>();
+        List<CPU> CPUs = new List<CPU>();        
         public Bauteile_Seite()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         public void TabelleAnzeigen(string tabellenname)
@@ -40,13 +40,14 @@ namespace PCKonfigurator
             }
             else
             {
-                CPUs.Clear();
-                LstBxBauteile.ItemsSource = CPUs;
+                CPUs.Clear();                
+                LstBxBauteile.ItemsSource = CPUs;                
                 GetCPUList();
-                LstBxBauteile.ItemsSource = CPUs;
+                LstBxBauteile.ItemsSource = CPUs;                
             }
             
         }
+
 
         public void GetCPUList()
         {
@@ -70,12 +71,22 @@ namespace PCKonfigurator
             }
         }
 
-        private void load_List()
+
+        private void Add_Bauteil()
         {
-            CPUs.Clear();
-            LstBxBauteile.ItemsSource = CPUs;
-            GetCPUList();
-            LstBxBauteile.ItemsSource = CPUs;
+            object addition = LstBxBauteile.SelectedItem;            
+            WindowCollection windows = new WindowCollection();
+            windows = Application.Current.Windows;
+            Window[] winds = new Window[2];
+            windows.CopyTo(winds, 0);
+            PCKonfiguration oldWindow = (PCKonfiguration)winds[0];
+            oldWindow.KonfigSchreiben(addition);
+        }
+        
+
+        private void LstBxBauteile_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Add_Bauteil();
         }
     }
 }

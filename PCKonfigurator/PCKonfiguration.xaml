@@ -57,6 +57,7 @@
                 <Grid  Grid.Column="0" Grid.Row="0">
                     <Rectangle x:Name="Arbeitsspeicher" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
                     <TextBlock Text ="Arbeitsspeicher" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="ArbeitsspeicherBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -64,6 +65,7 @@
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Rectangle x:Name="Betriebssystem" Width="180" Height="180" Fill="LightGray" Cursor="Hand" />
                     <TextBlock Text ="Betriebssytem" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="BetriebssystemBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -71,6 +73,7 @@
                 <Grid Grid.Column="2" Grid.Row="0" >
                     <Rectangle x:Name="Mainboard" Width="180" Height="180" Fill="LightGray" Cursor="Hand" />
                     <TextBlock Text ="Mainboard" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="MainboardBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -78,6 +81,7 @@
                 <Grid Grid.Column="3" Grid.Row="0">
                     <Rectangle x:Name="CPU" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
                     <TextBlock Text ="CPU" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="CPUBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -85,6 +89,7 @@
                 <Grid Grid.Column="4" Grid.Row="0">
                     <Rectangle x:Name="Grafikkarte" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
                     <TextBlock Text ="Grafikkarte" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="GrafikkarteBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -92,6 +97,7 @@
                 <Grid Grid.Column="0" Grid.Row="1">
                     <Rectangle x:Name="Prozessorlüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand" />
                     <TextBlock Text ="Prozessorlüfter" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="ProzessorlüfterBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -99,13 +105,15 @@
                 <Grid Grid.Column="1" Grid.Row="1">
                     <Rectangle x:Name="Festplatte" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
                     <TextBlock Text ="Festplatte" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="FestplatteBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="1">
-                    <Rectangle x:Name="Gehäuase" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Rectangle x:Name="Gehäuse" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
                     <TextBlock Text ="Gehäuse" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="GehäuseBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -113,6 +121,7 @@
                 <Grid  Grid.Column="3" Grid.Row="1">
                     <Rectangle x:Name="Gehäuselüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
                     <TextBlock Text ="Gehäuselüfter" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="GehäuselüfterBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
@@ -120,6 +129,7 @@
                 <Grid Grid.Column="4" Grid.Row="1">
                     <Rectangle x:Name="Netzteil" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
                     <TextBlock Text ="Netzteil" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
+                    <TextBlock Name="NetzteilBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
