@@ -14,7 +14,7 @@ namespace PCKonfigurator
         {            
         }
 
-        public Betriebssystem(Int32 _id, String _hersteller, String _typ, Int16 _preis, Int16 _architektur)
+        public Betriebssystem(Int32 _id, String _hersteller, String _typ, decimal _preis, Int16 _architektur)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

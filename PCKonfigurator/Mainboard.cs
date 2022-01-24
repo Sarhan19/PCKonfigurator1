@@ -15,7 +15,7 @@ namespace PCKonfigurator
         {            
         }
 
-        public Mainboard(Int32 _id, String _hersteller, String _typ, Int16 _preis, String _formfaktor, String _chipsatz)
+        public Mainboard(Int32 _id, String _hersteller, String _typ, decimal _preis, String _formfaktor, String _chipsatz)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

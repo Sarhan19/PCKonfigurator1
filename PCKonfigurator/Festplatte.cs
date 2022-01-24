@@ -14,7 +14,7 @@ namespace PCKonfigurator
         {
         }
 
-        public Festplatte(Int32 _id, String _hersteller, String _typ, Int16 _preis, Int32 _kapazität)
+        public Festplatte(Int32 _id, String _hersteller, String _typ, decimal _preis, Int32 _kapazität)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

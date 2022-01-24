@@ -15,7 +15,7 @@ namespace PCKonfigurator
         {
         }
 
-        public Arbeitsspeicher(Int32 _id, String _hersteller, String _typ, Int16 _preis, SByte _anzahlSpeichermodule, SByte _speicherkapazität)
+        public Arbeitsspeicher(Int32 _id, String _hersteller, String _typ, decimal _preis, SByte _anzahlSpeichermodule, SByte _speicherkapazität)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

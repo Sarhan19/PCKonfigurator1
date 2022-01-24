@@ -15,7 +15,7 @@ namespace PCKonfigurator
         {            
         }
 
-        public Grafikkarte(Int32 _id, String _hersteller, String _typ, Int16 _preis, String _grafikchip, SByte _speicherkapazität)
+        public Grafikkarte(Int32 _id, String _hersteller, String _typ, decimal _preis, String _grafikchip, SByte _speicherkapazität)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

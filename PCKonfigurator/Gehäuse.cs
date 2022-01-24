@@ -16,7 +16,7 @@ namespace PCKonfigurator
         {            
         }
 
-        public Gehäuse(Int32 _id, String _hersteller, String _typ, Int16 _preis, String _mainboardFormfaktor, String _netzteilFormfaktor, String _farbe)
+        public Gehäuse(Int32 _id, String _hersteller, String _typ, decimal _preis, String _mainboardFormfaktor, String _netzteilFormfaktor, String _farbe)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

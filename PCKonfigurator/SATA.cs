@@ -15,7 +15,7 @@ namespace PCKonfigurator
         {            
         }
 
-        public SATA(Int32 _id, String _hersteller, String _typ, Int16 _preis, Double _bauform, Int16 _rotationsgeschwindigkeit)
+        public SATA(Int32 _id, String _hersteller, String _typ, decimal _preis, Double _bauform, Int16 _rotationsgeschwindigkeit)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

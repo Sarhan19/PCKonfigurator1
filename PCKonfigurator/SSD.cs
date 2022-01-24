@@ -14,7 +14,7 @@ namespace PCKonfigurator
         {
         }
 
-        public SSD(Int32 _id, String _hersteller, String _typ, Int16 _preis, Int32 _kapazität, String _chiptyp)
+        public SSD(Int32 _id, String _hersteller, String _typ, decimal _preis, Int32 _kapazität, String _chiptyp)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

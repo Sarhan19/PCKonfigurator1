@@ -15,7 +15,7 @@ namespace PCKonfigurator
         {            
         }
 
-        public Prozessorlüfter(Int32 _id, String _hersteller, String _typ, Int16 _preis, String _kühlungsart, String _sockel)
+        public Prozessorlüfter(Int32 _id, String _hersteller, String _typ, decimal _preis, String _kühlungsart, String _sockel)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;

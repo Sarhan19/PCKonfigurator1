@@ -18,7 +18,7 @@ namespace PCKonfigurator
         Gehäuselüfter gehäuselüfter;
         Netzteil netzteil;
         Betriebssystem betriebssystem;
-        Int16 Preis;
+        decimal Preis;
 
         public CPU Cpu
         {
