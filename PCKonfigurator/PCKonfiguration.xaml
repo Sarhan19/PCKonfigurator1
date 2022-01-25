@@ -23,7 +23,7 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <!--Upper Bar-->
-        <Grid Height="79" VerticalAlignment="Top" Background="LightBlue" Grid.Row="0" Grid.ColumnSpan="2">
+        <Grid Height="80" VerticalAlignment="Top" Background="LightBlue" Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="19" ShadowDepth="1"/>
             </Grid.Effect>
@@ -479,13 +479,13 @@
 
         </Grid>
         <!--Bottom Bar-->
-        <Grid Height="74" VerticalAlignment="Bottom" Background="LightBlue" Grid.Row="2" Grid.ColumnSpan="2">
+        <Grid Height="80" VerticalAlignment="Bottom" Background="LightBlue" Grid.Row="2" Grid.ColumnSpan="2">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="20" ShadowDepth="1"/>
             </Grid.Effect>
-            <TextBlock x:Name="Gesamtpreis" Foreground="White" FontSize="30" Text="Gesamtpreis : " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,184,15" ></TextBlock>
-            <TextBlock x:Name="GesamtPreis" Foreground="White" FontSize="25" Text="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,114,10"/>
-            <materialDesign:PackIcon Kind="lightningboltcircle" Foreground="White" VerticalAlignment="Center" Width="80"  HorizontalAlignment="Right" Margin="0,0,10,10" Height="35" FontSize="25"/>
+            <TextBlock x:Name="Gesamtpreis" Foreground="White" FontSize="30" Text="Gesamtpreis : " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,184,0" ></TextBlock>
+            <TextBlock x:Name="GesamtPreis" Foreground="White" FontSize="25" Text="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,114,0"/>
+            <materialDesign:PackIcon Kind="Euro" Foreground="White" VerticalAlignment="Center" Width="80"  HorizontalAlignment="Right" Margin="0,0,10,0" Height="35" FontSize="25"/>
         </Grid>
 
 
