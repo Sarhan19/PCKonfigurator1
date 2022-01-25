@@ -24,5 +24,10 @@ namespace PCKonfigurator
             this.Breite = _breite;
             this.Farbe = _farbe;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Breite + "\t" + Farbe;
+        }
     }
 }

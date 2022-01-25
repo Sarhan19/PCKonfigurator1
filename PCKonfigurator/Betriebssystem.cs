@@ -22,5 +22,10 @@ namespace PCKonfigurator
             this.Preis = _preis;
             this.Architektur = _architektur;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Architektur;
+        }
     }
 }

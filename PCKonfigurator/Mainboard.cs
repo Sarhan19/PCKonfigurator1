@@ -24,5 +24,11 @@ namespace PCKonfigurator
             this.Formfaktor = _formfaktor;
             this.Chipsatz = _chipsatz;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Formfaktor + "\t" + Chipsatz;
+        }
+
     }
 }

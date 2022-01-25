@@ -24,5 +24,10 @@ namespace PCKonfigurator
             this.Bauform = _bauform;
             this.Rotationsgeschwindigkeit = _rotationsgeschwindigkeit;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Bauform + "\t" + Rotationsgeschwindigkeit;
+        }
     }
 }

@@ -27,6 +27,10 @@ namespace PCKonfigurator
             this.Farbe = _farbe;
         }
 
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + MainboardFormfaktor + "\t" + NetzteilFormfaktor + "\t" + Farbe;
+        }
 
     }
 }

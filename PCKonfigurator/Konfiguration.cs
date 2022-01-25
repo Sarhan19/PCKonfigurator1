@@ -18,7 +18,7 @@ namespace PCKonfigurator
         Gehäuselüfter gehäuselüfter;
         Netzteil netzteil;
         Betriebssystem betriebssystem;
-        decimal Preis;
+        decimal preis;
 
         public CPU Cpu
         {
@@ -141,11 +141,23 @@ namespace PCKonfigurator
             }
         }
 
+        public decimal Preis
+        {
+            get
+            {
+                return this.preis;
+            }
+            set
+            {
+                this.preis = value;
+            }
+        }
+
         public Konfiguration()
         {
         }
 
-        internal Konfiguration(CPU _cpu, Mainboard _mainboard, Prozessorlüfter _prozessorlüfter, Arbeitsspeicher _arbeitsspeicher, Grafikkarte _grafikkarte, Festplatte _festplatte, Gehäuse _gehäuse, Gehäuselüfter _gehäuselüfter, Netzteil _netzteil, Betriebssystem _betriebssystem)
+        internal Konfiguration(CPU _cpu, Mainboard _mainboard, Prozessorlüfter _prozessorlüfter, Arbeitsspeicher _arbeitsspeicher, Grafikkarte _grafikkarte, Festplatte _festplatte, Gehäuse _gehäuse, Gehäuselüfter _gehäuselüfter, Netzteil _netzteil, Betriebssystem _betriebssystem, decimal _preis = 0)
         {
             this.cpu = _cpu;
             this.mainboard = _mainboard;
@@ -157,6 +169,7 @@ namespace PCKonfigurator
             this.gehäuselüfter = _gehäuselüfter;
             this.netzteil = _netzteil;
             this.betriebssystem = _betriebssystem;
+            this.preis = _preis;
         }
 
     }

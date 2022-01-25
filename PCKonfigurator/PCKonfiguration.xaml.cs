@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace PCKonfigurator
 {
@@ -120,12 +122,13 @@ namespace PCKonfigurator
 
         private void BauteileAktualisieren()
         {
-            decimal gesamtpreis = 0;
+            konfiguration.Preis = 0;
+
             if(konfiguration.Cpu != null)
             {
                 CPUBeschreibung.Text = $"{konfiguration.Cpu.Hersteller} {konfiguration.Cpu.Typ}\n{konfiguration.Cpu.Name}";
                 CPUBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.Cpu.Preis;
+                konfiguration.Preis += konfiguration.Cpu.Preis;
             }
             else
             {
@@ -135,7 +138,7 @@ namespace PCKonfigurator
             {
                 ArbeitsspeicherBeschreibung.Text = $"{konfiguration.ArbeitsSpeicher.Hersteller} {konfiguration.ArbeitsSpeicher.Typ}\n{konfiguration.ArbeitsSpeicher.Speicherkapazität}";
                 ArbeitsspeicherBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.ArbeitsSpeicher.Preis;
+                konfiguration.Preis += konfiguration.ArbeitsSpeicher.Preis;
             }
             else
             {
@@ -145,7 +148,7 @@ namespace PCKonfigurator
             {
                 BetriebssystemBeschreibung.Text = $"{konfiguration.BetriebsSystem.Hersteller} {konfiguration.BetriebsSystem.Typ}\n{konfiguration.BetriebsSystem.Architektur}";
                 BetriebssystemBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.BetriebsSystem.Preis;
+                konfiguration.Preis += konfiguration.BetriebsSystem.Preis;
             }
             else
             {
@@ -155,7 +158,7 @@ namespace PCKonfigurator
             {
                 FestplatteBeschreibung.Text = $"{konfiguration.FestPlatte.Hersteller} {konfiguration.FestPlatte.Typ}\n{konfiguration.FestPlatte.Kapazität}";
                 FestplatteBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.FestPlatte.Preis;
+                konfiguration.Preis += konfiguration.FestPlatte.Preis;
             }
             else
             {
@@ -165,7 +168,7 @@ namespace PCKonfigurator
             {
                 GehäuseBeschreibung.Text = $"{konfiguration.GeHäuse.Hersteller} {konfiguration.GeHäuse.Typ}\n{konfiguration.GeHäuse.Farbe}";
                 GehäuseBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.GeHäuse.Preis;
+                konfiguration.Preis += konfiguration.GeHäuse.Preis;
             }
             else
             {
@@ -175,7 +178,7 @@ namespace PCKonfigurator
             {
                 GehäuselüfterBeschreibung.Text = $"{konfiguration.GehäuseLüfter.Hersteller} {konfiguration.GehäuseLüfter.Typ}\n{konfiguration.GehäuseLüfter.Farbe}";
                 GehäuselüfterBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.GehäuseLüfter.Preis;
+                konfiguration.Preis += konfiguration.GehäuseLüfter.Preis;
             }
             else
             {
@@ -185,7 +188,7 @@ namespace PCKonfigurator
             {
                 GrafikkarteBeschreibung.Text = $"{konfiguration.GrafikKarte.Hersteller} {konfiguration.GrafikKarte.Typ}\n{konfiguration.GrafikKarte.Grafikchip}";
                 GrafikkarteBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.GrafikKarte.Preis;
+                konfiguration.Preis += konfiguration.GrafikKarte.Preis;
             }
             else
             {
@@ -195,7 +198,7 @@ namespace PCKonfigurator
             {
                 MainboardBeschreibung.Text = $"{konfiguration.MainBoard.Hersteller} {konfiguration.MainBoard.Typ}\n{konfiguration.MainBoard.Formfaktor}";
                 MainboardBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.MainBoard.Preis;
+                konfiguration.Preis += konfiguration.MainBoard.Preis;
             }
             else
             {
@@ -205,7 +208,7 @@ namespace PCKonfigurator
             {
                 NetzteilBeschreibung.Text = $"{konfiguration.NetzTeil.Hersteller} {konfiguration.NetzTeil.Typ}\n{konfiguration.NetzTeil.Leistung}";
                 NetzteilBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.NetzTeil.Preis;
+                konfiguration.Preis += konfiguration.NetzTeil.Preis;
             }
             else
             {
@@ -215,13 +218,13 @@ namespace PCKonfigurator
             {
                 ProzessorlüfterBeschreibung.Text = $"{konfiguration.ProzessorLüfter.Hersteller} {konfiguration.ProzessorLüfter.Typ}\n{konfiguration.ProzessorLüfter.Kühlungsart}";
                 ProzessorlüfterBeschreibung.TextAlignment = TextAlignment.Center;
-                gesamtpreis += konfiguration.ProzessorLüfter.Preis;
+                konfiguration.Preis += konfiguration.ProzessorLüfter.Preis;
             }
             else
             {
                 ProzessorlüfterBeschreibung.Text = "";
             }            
-            GesamtPreis.Text = Convert.ToString(gesamtpreis);
+            GesamtPreis.Text = Convert.ToString(konfiguration.Preis);
         }
 
         public void KonfigSchreiben(object add)
@@ -280,7 +283,196 @@ namespace PCKonfigurator
             konfiguration = new Konfiguration();
             BauteileAktualisieren();
         }
-        
+
+        private void BtnKonfigurationSpeichern_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+            string dateiname = "";           
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                dateiname = saveFileDialog.FileName;
+            }
+            if(dateiname != string.Empty)
+            {
+                StreamWriter sw;
+                sw = new StreamWriter(dateiname, false);
+
+                List<string> dateiinhalte = KonfigurationslisteErzeugen();
+
+                foreach (string s in dateiinhalte)
+                {
+                    sw.WriteLine(s);
+                }
+
+                sw.Flush();
+                sw.Close();
+            }            
+        }
+
+        private void BtnKonfigurationLaden_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files (*.txt)|*.txt";
+            string dateiname = "";
+            List<string> dateiinhalt = new List<string>();
+            if (openFileDialog.ShowDialog() == true)
+            {               
+                dateiname = openFileDialog.FileName;
+            }
+            if(dateiname != string.Empty)
+            {
+                int i = 0;
+                foreach(string s in File.ReadLines(dateiname))
+                {
+                    dateiinhalt.Add(s);
+                    if(dateiinhalt[0] != "PC-Konfiguration" && dateiinhalt[1] != "================")
+                    {                                                
+                        MessageBox.Show("Keine gültige Konfigurationsdatei!");
+                        break;
+                    }
+                }
+                for(i = 0; i < 2; i++)
+                {
+                    dateiinhalt.RemoveAt(0);
+                }
+                for(i = 0; i < dateiinhalt.Count; i++)
+                {                    
+                    dateiinhalt[i] = dateiinhalt[i].Split(new string[] { ": " }, StringSplitOptions.None)[1];
+                }
+                for(i = 0; i < dateiinhalt.Count; i++)
+                {
+                    string[] bauteil = dateiinhalt[i].Split(new string[] { "\t" }, StringSplitOptions.None);                    
+
+                    if (dateiinhalt[i] != "")
+                    {
+                        Int16 id = Convert.ToInt16(bauteil[0]);
+                        string hersteller = bauteil[1];
+                        string typ = bauteil[2];
+                        decimal preis = Convert.ToDecimal(bauteil[3].Split('€')[0]);
+                        if (i == 0)
+                        {
+                            KonfigSchreiben(new Arbeitsspeicher(id, hersteller, typ, preis, Convert.ToSByte(bauteil[4]), Convert.ToSByte(bauteil[5])));
+                        }
+                        if (i == 1)
+                        {
+                            KonfigSchreiben(new Betriebssystem(id, hersteller, typ, preis, Convert.ToInt16(bauteil[4])));
+                        }
+                        if (i == 2)
+                        {
+                            KonfigSchreiben(new CPU(id, hersteller, typ, preis, bauteil[4], Convert.ToInt16(bauteil[5]), bauteil[6]));
+                        }
+                        if(i == 3)
+                        {
+                            KonfigSchreiben(new Festplatte(id, hersteller, typ, preis, Convert.ToInt16(bauteil[4]), Convert.ToDouble(bauteil[5]), Convert.ToInt16(bauteil[6]), bauteil[7]));
+                        }
+                        if(i == 4)
+                        {
+                            KonfigSchreiben(new Gehäuse(id, hersteller, typ, preis, bauteil[4], bauteil[5], bauteil[6]));
+                        }
+                        if(i == 5)
+                        {
+                            KonfigSchreiben(new Gehäuselüfter(id, hersteller, typ, preis, Convert.ToDouble(bauteil[4]), bauteil[5]));
+                        }
+                        if(i == 6)
+                        {
+                            KonfigSchreiben(new Grafikkarte(id, hersteller, typ, preis, bauteil[4], Convert.ToSByte(bauteil[5])));
+                        }
+                        if(i == 7)
+                        {
+                            KonfigSchreiben(new Mainboard(id, hersteller, typ, preis, bauteil[4], bauteil[5]));
+                        }
+                        if(i == 8)
+                        {
+                            KonfigSchreiben(new Netzteil(id, hersteller, typ, preis, bauteil[4], Convert.ToInt16(bauteil[5])));
+                        }
+                        if(i == 9)
+                        {
+                            KonfigSchreiben(new Prozessorlüfter(id, hersteller, typ, preis, bauteil[4], bauteil[5]));
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        private List<string> KonfigurationslisteErzeugen()
+        {
+            List<string> dateiinhalte = new List<string>();
+            string content = "";
+            dateiinhalte.Add("PC-Konfiguration");
+            dateiinhalte.Add("================");
+            content = "Arbeitsspeicher: ";
+            if (konfiguration.ArbeitsSpeicher != null)
+            {
+                content += konfiguration.ArbeitsSpeicher.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = "Betriebssystem: ";
+            if (konfiguration.BetriebsSystem != null)
+            {
+                content += konfiguration.BetriebsSystem.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = "CPU: ";
+            if (konfiguration.Cpu != null)
+            {
+                content += konfiguration.Cpu.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            if (konfiguration.FestPlatte != null)
+            {
+                dateiinhalte.Add($"{konfiguration.FestPlatte.GetType()}: {konfiguration.FestPlatte.WriteFile()}");
+            }
+            else
+            {
+                dateiinhalte.Add("Festplatte: ");
+            }
+            content = "Gehäuse: ";
+            if (konfiguration.GeHäuse != null)
+            {
+                content += konfiguration.GeHäuse.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = "Gehäuselüfter: ";
+            if (konfiguration.GehäuseLüfter != null)
+            {
+                content += konfiguration.GehäuseLüfter.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = "Grafikkarte: ";
+            if (konfiguration.GrafikKarte != null)
+            {
+                content += konfiguration.GrafikKarte.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = "Mainboard: ";
+            if (konfiguration.MainBoard != null)
+            {
+                content += konfiguration.MainBoard.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = "Netzteil: ";
+            if (konfiguration.NetzTeil != null)
+            {
+                content += konfiguration.NetzTeil.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = "Prozessorlüfter: ";
+            if (konfiguration.ProzessorLüfter != null)
+            {
+                content += konfiguration.ProzessorLüfter.WriteFile();
+            }
+            dateiinhalte.Add(content);
+            content = $"Gesamtpreis: {Convert.ToString(konfiguration.Preis)}";
+            dateiinhalte.Add(content);
+
+            return dateiinhalte;
+        }
     }
 
 }

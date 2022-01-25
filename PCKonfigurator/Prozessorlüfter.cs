@@ -24,5 +24,10 @@ namespace PCKonfigurator
             this.Kühlungsart = _kühlungsart;
             this.Sockel = _sockel;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Sockel + "\t" + Kühlungsart + "\t" + Sockel;
+        }
     }
 }

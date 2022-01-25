@@ -31,5 +31,10 @@ namespace PCKonfigurator
         {
             return ID + "\t" + Hersteller + "\t" + Typ + "\t\t" + Preis + "€\t" + Sockel + "\t" + Kerne + "\t" + Name;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Sockel + "\t" + Kerne + "\t" + Name;
+        }
     }
 }

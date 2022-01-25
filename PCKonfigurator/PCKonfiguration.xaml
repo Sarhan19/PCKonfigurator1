@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PCKonfigurator"
         mc:Ignorable="d"
-        Title="PC-Konfigurator" MinHeight="768" MinWidth="1366" MaxHeight="768" MaxWidth="1366" Width="1366" Height="768" x:Name="shitPtyenis">
+        Title="PC-Konfigurator" MinHeight="768" MinWidth="1366"  Width="1366" Height="768" WindowState="Maximized">
 
     <StackPanel Orientation="Vertical">
         <StackPanel.Background>
@@ -136,7 +136,7 @@
                 </Grid>
 
                 <!--Grid Buttons-->
-                <Button x:Name="BtnKonfigurationSpeichern" Height="80" Width="200" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black" FontSize="24" Margin="35,0,0,0" Cursor="Hand">
+                <Button x:Name="BtnKonfigurationLaden" Height="80" Width="200" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black" FontSize="24" Margin="35,0,0,0" Cursor="Hand" Click="BtnKonfigurationLaden_Click">
                     <TextBlock TextAlignment="Center">Konfiguration<LineBreak/>laden</TextBlock>
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -144,7 +144,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="BtnKonfigurationLaden" Height="80" Width="200" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black" FontSize="24" Margin="70,0,0,0" Cursor="Hand">
+                <Button Name="BtnKonfigurationSpeichern" Height="80" Width="200" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black" FontSize="24" Margin="70,0,0,0" Cursor="Hand" Click="BtnKonfigurationSpeichern_Click">
                     <TextBlock TextAlignment="Center">Konfiguration<LineBreak/>speichern</TextBlock>
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -315,13 +315,13 @@
             </Grid>
             <Frame Name="MidGridFrame" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,100,0" Height="520" Width="1000" NavigationUIVisibility="Hidden"/>
         </Grid>
-        <!--Buttom Bar-->
-        <Grid Height="74" VerticalAlignment="Bottom" Margin="0" Background="LightBlue">
+        <!--Bottom Bar-->
+        <Grid Height="74" VerticalAlignment="Bottom" Background="LightBlue">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="20" ShadowDepth="1"/>
             </Grid.Effect>
             <TextBlock x:Name="Gesamtpreis" Foreground="White" FontSize="30" Text="Gesamtpreis : " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,184,15" ></TextBlock>
-            <TextBlock x:Name="GesamtPreis" Foreground="White" FontSize="25" Text="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,114,10"/>
+            <TextBlock x:Name="GesamtPreis" Foreground="White" FontSize="25" Text="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,114,10"/>
             <materialDesign:PackIcon Kind="lightningboltcircle" Foreground="White" VerticalAlignment="Center" Width="80"  HorizontalAlignment="Right" Margin="0,0,10,10" Height="35" FontSize="25"/>
         </Grid>
 

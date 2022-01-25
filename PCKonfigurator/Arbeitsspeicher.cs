@@ -24,5 +24,10 @@ namespace PCKonfigurator
             this.AnzahlSpeichermodule = _anzahlSpeichermodule;
             this.Speicherkapazität = _speicherkapazität;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + AnzahlSpeichermodule + "\t" + Speicherkapazität;
+        }
     }
 }

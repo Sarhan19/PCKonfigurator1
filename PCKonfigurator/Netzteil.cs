@@ -24,5 +24,10 @@ namespace PCKonfigurator
             this.Bauform = _bauform;
             this.Leistung = _leistung;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Bauform + "\t" + Leistung;
+        }
     }
 }

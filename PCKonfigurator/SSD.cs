@@ -23,5 +23,10 @@ namespace PCKonfigurator
             this.Kapazität = _kapazität;
             this.Chiptyp = _chiptyp;
         }
+
+        public string WriteFile()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Kapazität + "\t" + Chiptyp;
+        }
     }
 }
