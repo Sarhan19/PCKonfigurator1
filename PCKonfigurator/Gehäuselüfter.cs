@@ -17,7 +17,7 @@ namespace PCKonfigurator
 
         public Gehäuselüfter(Int32 _id, String _hersteller, String _typ, decimal _preis, Double _breite, String _farbe)
         {
-                        this.ID = _id;
+            this.ID = _id;
             this.Hersteller = _hersteller;
             this.Typ = _typ;
             this.Preis = _preis;

@@ -8,14 +8,14 @@ namespace PCKonfigurator
 {
     class Arbeitsspeicher : Produkt
     {
-        internal SByte AnzahlSpeichermodule;
-        internal SByte Speicherkapazität;
+        internal Int16 AnzahlSpeichermodule;
+        internal Int16 Speicherkapazität;
 
         public Arbeitsspeicher()
         {
         }
 
-        public Arbeitsspeicher(Int32 _id, String _hersteller, String _typ, decimal _preis, SByte _anzahlSpeichermodule, SByte _speicherkapazität)
+        public Arbeitsspeicher(Int32 _id, String _hersteller, String _typ, decimal _preis, Int16 _anzahlSpeichermodule, Int16 _speicherkapazität)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;
@@ -23,6 +23,10 @@ namespace PCKonfigurator
             this.Preis = _preis;
             this.AnzahlSpeichermodule = _anzahlSpeichermodule;
             this.Speicherkapazität = _speicherkapazität;
+        }
+        public override string ToString()
+        {
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t\t" + Preis + "€\t" + AnzahlSpeichermodule + "\t" + Speicherkapazität + "GB";
         }
 
         public string WriteFile()

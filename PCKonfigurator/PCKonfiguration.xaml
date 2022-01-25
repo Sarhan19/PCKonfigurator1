@@ -25,16 +25,17 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="50 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <materialDesign:PackIcon Kind="Cart" Foreground="White" Width="25" Height="25" VerticalAlignment="Center" Margin="5"/>
-                <TextBlock Foreground="White" Width="25" FontSize="18" Text="5" VerticalAlignment="Center" />
+                <TextBlock Name="EinkaufswagenAnzahl" Foreground="White" Width="25" FontSize="18" Text="0" VerticalAlignment="Center" />
             </StackPanel>
             <!--<Button Height="53" FontSize="30" Content="Button" Margin="540,0,583,0" Click="Button_Click">
             </Button>-->
         </Grid>
-        
+
 
 
         <Grid Name="MiddleGrid">
             <!--Middle Grid 2x5-->
+
             <Grid VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,100,0" Background="Gray">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
@@ -53,81 +54,231 @@
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                 </Grid.Effect>
-
+                <!--Arbeitsspeicher-->
                 <Grid  Grid.Column="0" Grid.Row="0">
-                    <Rectangle x:Name="Arbeitsspeicher" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Arbeitsspeicher" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Arbeitsspeicher_MouseLeftButtonDown_1"/>
+                    </Viewbox>
                     <TextBlock Text ="Arbeitsspeicher" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="ArbeitsspeicherBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--Betriebssystem-->
                 <Grid Grid.Column="1" Grid.Row="0">
-                    <Rectangle x:Name="Betriebssystem" Width="180" Height="180" Fill="LightGray" Cursor="Hand" />
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Betriebssystem" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Betriebssystem_MouseLeftButtonDown_1" />
+                    </Viewbox>
                     <TextBlock Text ="Betriebssytem" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="BetriebssystemBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--Mainboard-->
                 <Grid Grid.Column="2" Grid.Row="0" >
-                    <Rectangle x:Name="Mainboard" Width="180" Height="180" Fill="LightGray" Cursor="Hand" />
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Mainboard" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Mainboard_MouseLeftButtonDown_1" />
+                    </Viewbox>
                     <TextBlock Text ="Mainboard" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="MainboardBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--CPU-->
                 <Grid Grid.Column="3" Grid.Row="0">
-                    <Rectangle x:Name="CPU" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="CPU" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="CPU_MouseLeftButtonDown_1"/>
+                    </Viewbox>
                     <TextBlock Text ="CPU" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="CPUBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
+
                 </Grid>
+                <!--Grafikkarte-->
                 <Grid Grid.Column="4" Grid.Row="0">
-                    <Rectangle x:Name="Grafikkarte" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Grafikkarte" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Grafikkarte_MouseLeftButtonDown_1"/>
+                    </Viewbox>
                     <TextBlock Text ="Grafikkarte" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="GrafikkarteBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--Prozessorlüfter-->
                 <Grid Grid.Column="0" Grid.Row="1">
-                    <Rectangle x:Name="Prozessorlüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand" />
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Prozessorlüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Prozessorlüfter_MouseLeftButtonDown_1" />
+                    </Viewbox>
                     <TextBlock Text ="Prozessorlüfter" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="ProzessorlüfterBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--Festplatte-->
                 <Grid Grid.Column="1" Grid.Row="1">
-                    <Rectangle x:Name="Festplatte" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Festplatte" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Festplatte_MouseLeftButtonDown_1"/>
+                    </Viewbox>
                     <TextBlock Text ="Festplatte" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="FestplatteBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--Gehäuse-->
                 <Grid Grid.Column="2" Grid.Row="1">
-                    <Rectangle x:Name="Gehäuse" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Gehäuase" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Gehäuase_MouseLeftButtonDown"/>
+                    </Viewbox>
                     <TextBlock Text ="Gehäuse" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="GehäuseBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--Gehäuselüfter-->
                 <Grid  Grid.Column="3" Grid.Row="1">
-                    <Rectangle x:Name="Gehäuselüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Gehäuselüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Gehäuselüfter_MouseLeftButtonDown_1"/>
+                    </Viewbox>
                     <TextBlock Text ="Gehäuselüfter" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="GehäuselüfterBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
                     </Grid.Effect>
                 </Grid>
+                <!--Netzteil-->
                 <Grid Grid.Column="4" Grid.Row="1">
-                    <Rectangle x:Name="Netzteil" Width="180" Height="180" Fill="LightGray" Cursor="Hand"/>
+                    <Viewbox>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Width" Value="180"/>
+                                <Setter Property="Height" Value="180"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="300"/>
+                                        <Setter Property="Height" Value="300"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                        <Rectangle x:Name="Netzteil" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Netzteil_MouseLeftButtonDown_1"/>
+                    </Viewbox>
                     <TextBlock Text ="Netzteil" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="NetzteilBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                     <Grid.Effect>
@@ -160,7 +311,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="BtnKaufen" Content="Kaufen" Height="80" Width="200" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black" FontSize="24" Margin="140,0,0,0" Cursor="Hand">
+                <Button Name="BtnKaufen" Content="Kaufen" Height="80" Width="200" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black" FontSize="24" Margin="140,0,0,0" Cursor="Hand" Click="BtnKaufen_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>

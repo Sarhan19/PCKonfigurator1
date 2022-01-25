@@ -9,30 +9,24 @@ namespace PCKonfigurator
     class Festplatte : Produkt
     {
 
-        internal Int32 Kapazität;
-        internal Double Bauform;
-        internal Int16 Rotationsgeschwindigkeit;
-        internal String Chiptyp;
+        internal Int16 Kapazität;
 
         public Festplatte()
         {
         }
 
-        public Festplatte(Int32 _id, String _hersteller, String _typ, decimal _preis, Int32 _kapazität, Double _bauform, Int16 _rotationsgeschwindigkeit, String _chiptyp)
+        public Festplatte(Int32 _id, String _hersteller, String _typ, decimal _preis, Int16 _kapazität)
         {
             this.ID = _id;
             this.Hersteller = _hersteller;
             this.Typ = _typ;
             this.Preis = _preis;
             this.Kapazität = _kapazität;
-            this.Bauform = _bauform;
-            this.Rotationsgeschwindigkeit = _rotationsgeschwindigkeit;
-            this.Chiptyp = _chiptyp;
         }
 
         public string WriteFile()
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Kapazität + "\t" + Bauform + "\t" + Rotationsgeschwindigkeit;
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Kapazität + "\t";
         }
     }
 }

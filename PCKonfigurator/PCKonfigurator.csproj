@@ -77,6 +77,8 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -113,7 +115,7 @@
     <Compile Include="Netzteil.cs" />
     <Compile Include="Produkt.cs" />
     <Compile Include="Prozessorlüfter.cs" />
-    <Compile Include="SATA.cs" />
+    <Compile Include="HDD.cs" />
     <Compile Include="SSD.cs" />
     <Page Include="Bauteile_Seite.xaml">
       <SubType>Designer</SubType>

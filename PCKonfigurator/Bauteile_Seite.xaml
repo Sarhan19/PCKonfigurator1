@@ -9,6 +9,18 @@
 
     <Grid Width="1000" Height="520" Name="BauteilGrid" Background="Gray">
         <TextBlock Name="TxtBlkBauteil" Background="LightGray" Width="1000" Height="30" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"  Text=" Überschrift" Margin="0,5,0,0"/>
-        <ListBox Name="LstBxBauteile" Width="1000" Height="400"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray" SelectionChanged="LstBxBauteile_SelectionChanged" ></ListBox>        
+        <ListBox Name="LstBxBauteile" Width="1000" Height="409"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray" SelectionChanged="LstBxBauteile_SelectionChanged" Margin="0,65,0,46" ></ListBox>
+        <Grid HorizontalAlignment="Left" Height="39" Margin="0,35,0,0" VerticalAlignment="Top" Width="1000">
+            <ListView x:Name="ÜberschriftList" GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler" Margin="0,0,0,10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="Hersteller" Width="80" DisplayMemberBinding="{Binding Hersteller}" />
+                        <GridViewColumn Header="Typ" Width="80" DisplayMemberBinding="{Binding Typ}" />
+                        <GridViewColumn Header="Preis" Width="80" DisplayMemberBinding="{Binding Preis}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>
