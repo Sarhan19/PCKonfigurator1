@@ -8,12 +8,22 @@
         mc:Ignorable="d"
         Title="PC-Konfigurator" MinHeight="768" MinWidth="1366"  Width="1366" Height="768" WindowState="Maximized">
 
-    <StackPanel Orientation="Vertical">
-        <StackPanel.Background>
+    <Grid>
+        <Grid.Background>
             <ImageBrush ImageSource="Assets/2098480.png" Opacity="0.4"/>
-        </StackPanel.Background>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
         <!--Upper Bar-->
-        <Grid Height="79" VerticalAlignment="Top" Background="LightBlue">
+        <Grid Height="79" VerticalAlignment="Top" Background="LightBlue" Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="19" ShadowDepth="1"/>
             </Grid.Effect>
@@ -33,22 +43,22 @@
 
 
 
-        <Grid Name="MiddleGrid">
+        <Grid Name="MiddleGrid" Grid.Row="1" Grid.Column="1">
             <!--Middle Grid 2x5-->
 
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,100,0" Background="Gray">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Background="Gray" Height="520" Width="1000">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
                 <Grid.Effect>
@@ -321,153 +331,155 @@
 
 
             </Grid>
-            <!--Sidebar Grid-->
-            <Grid x:Name="nav_pnl" HorizontalAlignment="Left" Margin="10,20,1146,20" VerticalAlignment="Top" Background="Gray" Width="65" Height="545">
-                <StackPanel x:Name="st_pnl">
-                    <Grid Height="90">
-                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="73,-20,0,0" Text="MENU" Foreground="White" FontSize="22" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="10" ShadowDepth="1" Direction="-90" Color="White">
 
-                                </DropShadowEffect>
-                            </TextBlock.Effect>
-                        </TextBlock>
-                        <ToggleButton x:Name="Tg_Btn" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18,-20,0,0" Height="30" Width="30" BorderThickness="0" Background="Gray">
-                            <materialDesign:PackIcon Kind="Menu" Foreground="Black" Width="30" Height="30" VerticalAlignment="Center"/>
+            <Frame Name="MidGridFrame" VerticalAlignment="Center" Margin="0,0,0,0" Height="520" Width="1000" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
 
-                            <ToggleButton.Triggers>
-                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="HideStackPanel">
-                                            <DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="230" To="65" Duration="0:0:0.2">
+        <!--Sidebar Grid-->
+        <Grid x:Name="nav_pnl" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Gray" Width="65" Height="545" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0">
+            <StackPanel x:Name="st_pnl">
+                <Grid Height="90">
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="73,-20,0,0" Text="MENU" Foreground="White" FontSize="22" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="1" Direction="-90" Color="White">
 
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="ShowStackPanel">
-                                            <DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="65" To="230" Duration="0:0:0.3">
+                            </DropShadowEffect>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <ToggleButton x:Name="Tg_Btn" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="18,-20,0,0" Height="30" Width="30" BorderThickness="0" Background="Gray">
+                        <materialDesign:PackIcon Kind="Menu" Foreground="Black" Width="30" Height="30" VerticalAlignment="Center"/>
 
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                            </ToggleButton.Triggers>
-                        </ToggleButton>
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="HideStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="230" To="65" Duration="0:0:0.2">
 
-                    </Grid>
-                    <ListView x:Name="Sidebar" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="468">
-                        <!--Mainboard-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand">
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Mainboard_MouseLeftButtonDown">
-                                <Image Source="Assets/Mainboard.ico" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Mainboard" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Mainboard" Content="Mainboard"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--CPU-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand">
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="CPU_MouseLeftButtonDown">
-                                <Image Source="Assets/CPU.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="CPU" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_CPU" Content="CPU"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Grafikkarte-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Grafikkarte_MouseLeftButtonDown">
-                                <Image Source="Assets/Grafikkarte.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Grafikkarte" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Grafikkarte" Content="Grafikkarte"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Prozessorlüfter-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Prozessorlüfter_MouseLeftButtonDown">
-                                <Image Source="Assets/Prozessorlüfter.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Prozessorlüftzer" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_ProzessorLüfter" Content="Prozessorlüfter"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Arbeitsspeicher-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Arbeitsspeicher_MouseLeftButtonDown">
-                                <Image Source="Assets/Arbeitsspeicher.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Arbeitsspeicher" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Arbeitsspeicher" Content="Arbeitsspeicher"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Festplatte-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Festplatte_MouseLeftButtonDown">
-                                <Image Source="Assets/Festplatte.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Festplatte" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Festplatte" Content="Festplatte"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Gehäuse-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Gehäuse_MouseLeftButtonDown">
-                                <Image Source="Assets/Gehäuse.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Gehäuse" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Gehäuse" Content="Gehäuse"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Gehäuselüfter-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Gehäuselüfter_MouseLeftButtonDown">
-                                <Image Source="Assets/Gehäuselüfter.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Gehäuselüfter" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Gehäuselüfter" Content="Gehäuselüfter"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Netzteil-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Netzteil_MouseLeftButtonDown">
-                                <Image Source="Assets/Netzteil.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Netzteil" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Netzteil" Content="Netzteil"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Betriebssystem-->
-                        <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand">
-                            <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Betriebssystem_MouseLeftButtonDown">
-                                <Image Source="Assets/Betriebssystem.png" Margin="12,0,0,0" Width="30" Height="30"/>
-                                <TextBlock Text="Betriebssystem" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_Betriebssystem" Content="Betriebssystem"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                    </ListView>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="ShowStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="65" To="230" Duration="0:0:0.3">
 
-                </StackPanel>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
 
-            </Grid>
-            <Frame Name="MidGridFrame" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,100,0" Height="520" Width="1000" NavigationUIVisibility="Hidden"/>
+                </Grid>
+                <ListView x:Name="Sidebar" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="468">
+                    <!--Mainboard-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Mainboard_MouseLeftButtonDown">
+                            <Image Source="Assets/Mainboard.ico" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Mainboard" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Mainboard" Content="Mainboard"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--CPU-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="CPU_MouseLeftButtonDown">
+                            <Image Source="Assets/CPU.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="CPU" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_CPU" Content="CPU"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Grafikkarte-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Grafikkarte_MouseLeftButtonDown">
+                            <Image Source="Assets/Grafikkarte.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Grafikkarte" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Grafikkarte" Content="Grafikkarte"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Prozessorlüfter-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Prozessorlüfter_MouseLeftButtonDown">
+                            <Image Source="Assets/Prozessorlüfter.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Prozessorlüftzer" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_ProzessorLüfter" Content="Prozessorlüfter"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Arbeitsspeicher-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Arbeitsspeicher_MouseLeftButtonDown">
+                            <Image Source="Assets/Arbeitsspeicher.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Arbeitsspeicher" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Arbeitsspeicher" Content="Arbeitsspeicher"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Festplatte-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Festplatte_MouseLeftButtonDown">
+                            <Image Source="Assets/Festplatte.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Festplatte" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Festplatte" Content="Festplatte"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Gehäuse-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Gehäuse_MouseLeftButtonDown">
+                            <Image Source="Assets/Gehäuse.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Gehäuse" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Gehäuse" Content="Gehäuse"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Gehäuselüfter-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Gehäuselüfter_MouseLeftButtonDown">
+                            <Image Source="Assets/Gehäuselüfter.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Gehäuselüfter" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Gehäuselüfter" Content="Gehäuselüfter"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Netzteil-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand" >
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Netzteil_MouseLeftButtonDown">
+                            <Image Source="Assets/Netzteil.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Netzteil" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Netzteil" Content="Netzteil"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--Betriebssystem-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,15" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" Width="230" MouseLeftButtonDown="Betriebssystem_MouseLeftButtonDown">
+                            <Image Source="Assets/Betriebssystem.png" Margin="12,0,0,0" Width="30" Height="30"/>
+                            <TextBlock Text="Betriebssystem" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_Betriebssystem" Content="Betriebssystem"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                </ListView>
+
+            </StackPanel>
+
         </Grid>
         <!--Bottom Bar-->
-        <Grid Height="74" VerticalAlignment="Bottom" Background="LightBlue">
+        <Grid Height="74" VerticalAlignment="Bottom" Background="LightBlue" Grid.Row="2" Grid.ColumnSpan="2">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="20" ShadowDepth="1"/>
             </Grid.Effect>
@@ -477,5 +489,5 @@
         </Grid>
 
 
-    </StackPanel>
+    </Grid>
 </Window>

@@ -140,7 +140,7 @@ namespace PCKonfigurator
             }
             if(konfiguration.ArbeitsSpeicher != null)
             {
-                ArbeitsspeicherBeschreibung.Text = $"{konfiguration.ArbeitsSpeicher.Hersteller} {konfiguration.ArbeitsSpeicher.Typ}\n{konfiguration.ArbeitsSpeicher.Speicherkapazität}";
+                ArbeitsspeicherBeschreibung.Text = $"{konfiguration.ArbeitsSpeicher.Hersteller} {konfiguration.ArbeitsSpeicher.Typ}\n{konfiguration.ArbeitsSpeicher.Speicherkapazität} GB";
                 ArbeitsspeicherBeschreibung.TextAlignment = TextAlignment.Center;
                 konfiguration.Preis += konfiguration.ArbeitsSpeicher.Preis;
                 cart++;
@@ -151,7 +151,7 @@ namespace PCKonfigurator
             }
             if (konfiguration.BetriebsSystem != null)
             {
-                BetriebssystemBeschreibung.Text = $"{konfiguration.BetriebsSystem.Hersteller} {konfiguration.BetriebsSystem.Typ}\n{konfiguration.BetriebsSystem.Architektur}";
+                BetriebssystemBeschreibung.Text = $"{konfiguration.BetriebsSystem.Hersteller} {konfiguration.BetriebsSystem.Typ}\n{konfiguration.BetriebsSystem.Architektur}-Bit";
                 BetriebssystemBeschreibung.TextAlignment = TextAlignment.Center;
                 konfiguration.Preis += konfiguration.BetriebsSystem.Preis;
                 cart++;
@@ -162,7 +162,7 @@ namespace PCKonfigurator
             }
             if (konfiguration.FestPlatte != null)
             {
-                FestplatteBeschreibung.Text = $"{konfiguration.FestPlatte.Hersteller} {konfiguration.FestPlatte.Typ}\n{konfiguration.FestPlatte.Kapazität}";
+                FestplatteBeschreibung.Text = $"{konfiguration.FestPlatte.Hersteller} {konfiguration.FestPlatte.Typ}\n{konfiguration.FestPlatte.Kapazität} GB";
                 FestplatteBeschreibung.TextAlignment = TextAlignment.Center;
                 konfiguration.Preis += konfiguration.FestPlatte.Preis;
                 cart++;
@@ -217,7 +217,7 @@ namespace PCKonfigurator
             }
             if (konfiguration.NetzTeil != null)
             {
-                NetzteilBeschreibung.Text = $"{konfiguration.NetzTeil.Hersteller} {konfiguration.NetzTeil.Typ}\n{konfiguration.NetzTeil.Leistung}";
+                NetzteilBeschreibung.Text = $"{konfiguration.NetzTeil.Hersteller} {konfiguration.NetzTeil.Typ}\n{konfiguration.NetzTeil.Leistung} Watt";
                 NetzteilBeschreibung.TextAlignment = TextAlignment.Center;
                 konfiguration.Preis += konfiguration.NetzTeil.Preis;
                 cart++;
