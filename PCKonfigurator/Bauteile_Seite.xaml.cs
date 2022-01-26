@@ -195,9 +195,9 @@ namespace PCKonfigurator
             object addition = LstBxBauteile.SelectedItem;            
             WindowCollection windows = new WindowCollection();
             windows = Application.Current.Windows;
-            Window[] winds = new Window[2];
-            windows.CopyTo(winds, 0);
-            PCKonfiguration oldWindow = (PCKonfiguration)winds[0];
+            Window[] WINs = new Window[2];
+            windows.CopyTo(WINs, 0);
+            PCKonfiguration oldWindow = (PCKonfiguration)WINs[0];
             oldWindow.KonfigSchreiben(addition);
             MessageBox.Show("Neues Bauteil ausgewählt!");
         }

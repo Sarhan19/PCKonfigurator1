@@ -23,10 +23,6 @@ namespace PCKonfigurator
             this.Preis = _preis;
             this.Kapazität = _kapazität;
         }
-
-        public string WriteFile()
-        {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Kapazität + "\t";
-        }
+        
     }
 }

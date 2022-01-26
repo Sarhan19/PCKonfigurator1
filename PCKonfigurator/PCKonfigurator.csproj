@@ -108,6 +108,9 @@
       <DependentUpon>DBPCTeileDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Festplatte.cs" />
+    <Compile Include="FestplatteAuswahl.xaml.cs">
+      <DependentUpon>FestplatteAuswahl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gehäuse.cs" />
     <Compile Include="Gehäuselüfter.cs" />
     <Compile Include="Grafikkarte.cs" />
@@ -118,6 +121,10 @@
     <Compile Include="HDD.cs" />
     <Compile Include="SSD.cs" />
     <Page Include="Bauteile_Seite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FestplatteAuswahl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

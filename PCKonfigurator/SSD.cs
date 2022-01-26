@@ -31,7 +31,7 @@ namespace PCKonfigurator
         }
         public string WriteFile()
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Kapazität + "GB\t" + Chipsatz +"\t" + Name;
+            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Kapazität + "GB\t" + Chipsatz + "\t" + Name;
         }
     }
 }
