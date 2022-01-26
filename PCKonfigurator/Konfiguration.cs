@@ -8,17 +8,17 @@ namespace PCKonfigurator
 {
     class Konfiguration
     {
-        CPU cpu;
-        Mainboard mainboard;
-        Prozessorlüfter prozessorlüfter;
-        Arbeitsspeicher arbeitsspeicher;
-        Grafikkarte grafikkarte;
-        Festplatte festplatte;
-        Gehäuse gehäuse;
-        Gehäuselüfter gehäuselüfter;
-        Netzteil netzteil;
-        Betriebssystem betriebssystem;
-        decimal preis;
+        private CPU cpu;
+        private Mainboard mainboard;
+        private Prozessorlüfter prozessorlüfter;
+        private Arbeitsspeicher arbeitsspeicher;
+        private Grafikkarte grafikkarte;
+        private Festplatte festplatte;
+        private Gehäuse gehäuse;
+        private Gehäuselüfter gehäuselüfter;
+        private Netzteil netzteil;
+        private Betriebssystem betriebssystem;
+        private decimal preis;
 
         public CPU Cpu
         {
