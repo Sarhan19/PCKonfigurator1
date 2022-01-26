@@ -49,11 +49,6 @@ namespace PCKonfigurator
             }
         }
 
-        public override string ToString()
-        {
-            return id + "\t" + hersteller + "\t" + typ + "\t\t" + preis + "€\t" + AnzahlSpeichermodule + "\t" + Speicherkapazität + "GB";
-        }
-
         public string WriteFile()
         {
             return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + AnzahlSpeichermodule + "\t" + Speicherkapazität;
