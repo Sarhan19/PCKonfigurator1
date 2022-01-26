@@ -17,21 +17,41 @@ namespace PCKonfigurator
 
         public Prozessorlüfter(Int32 _id, String _hersteller, String _typ, decimal _preis, String _sockel, String _name)
         {
-            this.ID = _id;
-            this.Hersteller = _hersteller;
-            this.Typ = _typ;
-            this.Preis = _preis;
+            this.id = _id;
+            this.hersteller = _hersteller;
+            this.typ = _typ;
+            this.preis = _preis;
             this.Sockel = _sockel;
             this.Name = _name;
         }
-        public override string ToString()
+
+        public String sockel
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t\t" + Preis + "€\t" + Sockel + "\t" + Name;
+            get
+            {
+                return this.Sockel;
+            }
+            set
+            {
+                this.Sockel = value;
+            }
+        }
+
+        public String name
+        {
+            get
+            {
+                return this.Name;
+            }
+            set
+            {
+                this.Name = value;
+            }
         }
 
         public string WriteFile()
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Sockel + "\t" + Name;
+            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + Sockel + "\t" + Name;
         }
     }
 }

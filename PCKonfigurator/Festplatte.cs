@@ -17,11 +17,23 @@ namespace PCKonfigurator
 
         public Festplatte(Int32 _id, String _hersteller, String _typ, decimal _preis, Int16 _kapazität)
         {
-            this.ID = _id;
-            this.Hersteller = _hersteller;
-            this.Typ = _typ;
-            this.Preis = _preis;
+            this.id = _id;
+            this.hersteller = _hersteller;
+            this.typ = _typ;
+            this.preis = _preis;
             this.Kapazität = _kapazität;
+        }
+
+        public Int16 kapazität
+        {
+            get
+            {
+                return this.Kapazität;
+            }
+            set
+            {
+                this.Kapazität = value;
+            }
         }
         
     }

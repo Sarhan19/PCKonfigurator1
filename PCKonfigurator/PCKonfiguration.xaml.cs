@@ -113,14 +113,11 @@ namespace PCKonfigurator
             MidGridFrame.NavigationService.Navigate(Betriebssystem_Page);
         }
 
-
-
         private void PackIcon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MidGridFrame.Content = null;            
         }
 
-        
 
         private void BauteileAktualisieren()
         {
@@ -129,9 +126,9 @@ namespace PCKonfigurator
 
             if(konfiguration.Cpu != null)
             {
-                CPUBeschreibung.Text = $"{konfiguration.Cpu.Hersteller}\n{konfiguration.Cpu.Typ}\n{konfiguration.Cpu.Name}";
+                CPUBeschreibung.Text = $"{konfiguration.Cpu.hersteller}\n{konfiguration.Cpu.typ}\n{konfiguration.Cpu.Name}";
                 CPUBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.Cpu.Preis;
+                konfiguration.Preis += konfiguration.Cpu.preis;
                 cart++;
             }
             else
@@ -140,9 +137,9 @@ namespace PCKonfigurator
             }
             if(konfiguration.ArbeitsSpeicher != null)
             {
-                ArbeitsspeicherBeschreibung.Text = $"{konfiguration.ArbeitsSpeicher.Hersteller}\n{konfiguration.ArbeitsSpeicher.Typ}\n{konfiguration.ArbeitsSpeicher.Speicherkapazität} GB";
+                ArbeitsspeicherBeschreibung.Text = $"{konfiguration.ArbeitsSpeicher.hersteller}\n{konfiguration.ArbeitsSpeicher.typ}\n{konfiguration.ArbeitsSpeicher.Speicherkapazität} GB";
                 ArbeitsspeicherBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.ArbeitsSpeicher.Preis;
+                konfiguration.Preis += konfiguration.ArbeitsSpeicher.preis;
                 cart++;
             }
             else
@@ -151,9 +148,9 @@ namespace PCKonfigurator
             }
             if (konfiguration.BetriebsSystem != null)
             {
-                BetriebssystemBeschreibung.Text = $"{konfiguration.BetriebsSystem.Hersteller}\n{konfiguration.BetriebsSystem.Typ}\n{konfiguration.BetriebsSystem.Architektur}-Bit";
+                BetriebssystemBeschreibung.Text = $"{konfiguration.BetriebsSystem.hersteller}\n{konfiguration.BetriebsSystem.typ}\n{konfiguration.BetriebsSystem.Architektur}-Bit";
                 BetriebssystemBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.BetriebsSystem.Preis;
+                konfiguration.Preis += konfiguration.BetriebsSystem.preis;
                 cart++;
             }
             else
@@ -167,15 +164,15 @@ namespace PCKonfigurator
                 if(festplattentyp == typeof(HDD))
                 {
                     HDD hdd = (HDD)konfiguration.FestPlatte;
-                    FestplatteBeschreibung.Text = $"{hdd.Hersteller}\n{hdd.Name}\n{festplattenklasse}\n{hdd.Kapazität} GB"; 
+                    FestplatteBeschreibung.Text = $"{hdd.hersteller}\n{hdd.Name}\n{festplattenklasse}\n{hdd.Kapazität} GB"; 
                 }
                 if(festplattentyp == typeof(SSD))
                 {
                     SSD ssd = (SSD)konfiguration.FestPlatte;
-                    FestplatteBeschreibung.Text = $"{ssd.Hersteller}\n{ssd.Name}\n{festplattenklasse}\n{ssd.Kapazität} GB";
+                    FestplatteBeschreibung.Text = $"{ssd.hersteller}\n{ssd.Name}\n{festplattenklasse}\n{ssd.Kapazität} GB";
                 }
                 FestplatteBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.FestPlatte.Preis;
+                konfiguration.Preis += konfiguration.FestPlatte.preis;
                 cart++;
             }
             else
@@ -184,9 +181,9 @@ namespace PCKonfigurator
             }
             if (konfiguration.GeHäuse != null)
             {
-                GehäuseBeschreibung.Text = $"{konfiguration.GeHäuse.Hersteller}\n{konfiguration.GeHäuse.Typ}\n{konfiguration.GeHäuse.Farbe}";
+                GehäuseBeschreibung.Text = $"{konfiguration.GeHäuse.hersteller}\n{konfiguration.GeHäuse.typ}\n{konfiguration.GeHäuse.Farbe}";
                 GehäuseBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.GeHäuse.Preis;
+                konfiguration.Preis += konfiguration.GeHäuse.preis;
                 cart++;
             }
             else
@@ -195,9 +192,9 @@ namespace PCKonfigurator
             }
             if (konfiguration.GehäuseLüfter != null)
             {
-                GehäuselüfterBeschreibung.Text = $"{konfiguration.GehäuseLüfter.Hersteller}\n{konfiguration.GehäuseLüfter.Typ}\n{konfiguration.GehäuseLüfter.Farbe}";
+                GehäuselüfterBeschreibung.Text = $"{konfiguration.GehäuseLüfter.hersteller}\n{konfiguration.GehäuseLüfter.typ}\n{konfiguration.GehäuseLüfter.Farbe}";
                 GehäuselüfterBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.GehäuseLüfter.Preis;
+                konfiguration.Preis += konfiguration.GehäuseLüfter.preis;
                 cart++;
             }
             else
@@ -206,9 +203,9 @@ namespace PCKonfigurator
             }
             if (konfiguration.GrafikKarte != null)
             {
-                GrafikkarteBeschreibung.Text = $"{konfiguration.GrafikKarte.Hersteller}\n{konfiguration.GrafikKarte.Typ}\n{konfiguration.GrafikKarte.Grafikchip}";
+                GrafikkarteBeschreibung.Text = $"{konfiguration.GrafikKarte.hersteller}\n{konfiguration.GrafikKarte.typ}\n{konfiguration.GrafikKarte.Grafikchip}";
                 GrafikkarteBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.GrafikKarte.Preis;
+                konfiguration.Preis += konfiguration.GrafikKarte.preis;
                 cart++;
             }
             else
@@ -217,9 +214,9 @@ namespace PCKonfigurator
             }
             if (konfiguration.MainBoard != null)
             {
-                MainboardBeschreibung.Text = $"{konfiguration.MainBoard.Hersteller}\n{konfiguration.MainBoard.Typ}\n{konfiguration.MainBoard.Formfaktor}";
+                MainboardBeschreibung.Text = $"{konfiguration.MainBoard.hersteller}\n{konfiguration.MainBoard.typ}\n{konfiguration.MainBoard.Formfaktor}";
                 MainboardBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.MainBoard.Preis;
+                konfiguration.Preis += konfiguration.MainBoard.preis;
                 cart++;
             }
             else
@@ -228,9 +225,9 @@ namespace PCKonfigurator
             }
             if (konfiguration.NetzTeil != null)
             {
-                NetzteilBeschreibung.Text = $"{konfiguration.NetzTeil.Hersteller}\n{konfiguration.NetzTeil.Typ}\n{konfiguration.NetzTeil.Leistung} Watt";
+                NetzteilBeschreibung.Text = $"{konfiguration.NetzTeil.hersteller}\n{konfiguration.NetzTeil.typ}\n{konfiguration.NetzTeil.Leistung} Watt";
                 NetzteilBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.NetzTeil.Preis;
+                konfiguration.Preis += konfiguration.NetzTeil.preis;
                 cart++;
             }
             else
@@ -239,9 +236,9 @@ namespace PCKonfigurator
             }
             if (konfiguration.ProzessorLüfter != null)
             {
-                ProzessorlüfterBeschreibung.Text = $"{konfiguration.ProzessorLüfter.Hersteller}\n{konfiguration.ProzessorLüfter.Name}\n{konfiguration.ProzessorLüfter.Typ}";
+                ProzessorlüfterBeschreibung.Text = $"{konfiguration.ProzessorLüfter.hersteller}\n{konfiguration.ProzessorLüfter.Name}\n{konfiguration.ProzessorLüfter.typ}";
                 ProzessorlüfterBeschreibung.TextAlignment = TextAlignment.Center;
-                konfiguration.Preis += konfiguration.ProzessorLüfter.Preis;
+                konfiguration.Preis += konfiguration.ProzessorLüfter.preis;
                 cart++;
             }
             else
@@ -535,10 +532,6 @@ namespace PCKonfigurator
                 konfiguration = new Konfiguration();
                 BauteileAktualisieren();                
             }
-            else
-            {
-                
-            }
         }
 
         private void Arbeitsspeicher_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
@@ -600,7 +593,7 @@ namespace PCKonfigurator
             konfiguration.NetzTeil = null;
             BauteileAktualisieren();
         }
-            
+
     }
 
 }

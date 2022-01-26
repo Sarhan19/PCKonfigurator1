@@ -46,35 +46,129 @@ namespace PCKonfigurator
             using (var cmd = connection.CreateCommand())
             {
                 connection.Open();
+                DataGridTextColumn textColumn;
                 switch (tabellenname)
                 {
                     case "CPU":
-                        GetCPUList(cmd);
-                        LstBxBauteile.ItemsSource = CPUs;
+                        GetCPUList(cmd);                        
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Sockel";
+                        textColumn.Binding = new Binding("sockel");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Kerne";
+                        textColumn.Binding = new Binding("kerne");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach (CPU cpu in CPUs)
+                        {
+                            DataGridTabellen.Items.Add(cpu);
+                        }                        
                         break;
                     case "Arbeitsspeicher":
                         GetRAMList(cmd);
-                        LstBxBauteile.ItemsSource = RAMs;
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Anzahl Speichermodule";
+                        textColumn.Binding = new Binding("anzahlSpeichermodule");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Speicherkapazität";
+                        textColumn.Binding = new Binding("speicherkapazität");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Arbeitsspeicher arbeitsspeicher in RAMs)
+                        {
+                            DataGridTabellen.Items.Add(arbeitsspeicher);
+                        }
                         break;
                     case "Prozessorlüfter":
                         GetCPULuefterList(cmd);
-                        LstBxBauteile.ItemsSource = CPULuefter;
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Sockel";
+                        textColumn.Binding = new Binding("sockel");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Prozessorlüfter prozessorlüfter in CPULuefter)
+                        {
+                            DataGridTabellen.Items.Add(prozessorlüfter);
+                        }
                         break;
                     case "Mainboard":
                         GetMainboardList(cmd);
-                        LstBxBauteile.ItemsSource = Mainboards;
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Formfaktor";
+                        textColumn.Binding = new Binding("formfaktor");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Chipsatz";
+                        textColumn.Binding = new Binding("chipsatz");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Mainboard mainboard in Mainboards)
+                        {
+                            DataGridTabellen.Items.Add(mainboard);
+                        }
                         break;
                     case "Grafikkarte":
                         GetGPUList(cmd);
-                        LstBxBauteile.ItemsSource = GPUs;
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Grafikchip";
+                        textColumn.Binding = new Binding("grafikchip");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Speicherkapazität";
+                        textColumn.Binding = new Binding("speicherkapazität");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Grafikkarte grafikkarte in GPUs)
+                        {
+                            DataGridTabellen.Items.Add(grafikkarte);
+                        }
                         break;
                     case "HDD":
                         GetHDDList(cmd);
-                        LstBxBauteile.ItemsSource = HDDs;
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Bauform";
+                        textColumn.Binding = new Binding("bauform");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Rotationsgeschwindigkeit";
+                        textColumn.Binding = new Binding("rotationsgeschwindigkeit");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(HDD hdd in HDDs)
+                        {
+                            DataGridTabellen.Items.Add(hdd);
+                        }
                         break;
                     case "SSD":
                         GetSSDList(cmd);
-                        LstBxBauteile.ItemsSource = SSDs;
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Chipsatz";
+                        textColumn.Binding = new Binding("chipsatz");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(SSD ssd in SSDs)
+                        {
+                            DataGridTabellen.Items.Add(ssd);
+                        }
                         break;
                     default:
                         break;
@@ -191,8 +285,8 @@ namespace PCKonfigurator
 
 
         private void Add_Bauteil()
-        {
-            object addition = LstBxBauteile.SelectedItem;            
+        {            
+            object addition = DataGridTabellen.SelectedItem;
             WindowCollection windows = new WindowCollection();
             windows = Application.Current.Windows;
             Window[] WINs = new Window[2];
@@ -203,73 +297,10 @@ namespace PCKonfigurator
         }
         
 
-        private void LstBxBauteile_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DataGridBauteile_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Add_Bauteil();
         }
 
-        GridViewColumnHeader _lastHeaderClicked = null;
-        ListSortDirection _lastDirection = ListSortDirection.Ascending;
-
-        void GridViewColumnHeaderClickedHandler(object sender, RoutedEventArgs e)
-        {
-            var headerClicked = e.OriginalSource as GridViewColumnHeader;
-            ListSortDirection direction;
-
-            if (headerClicked != null)
-            {
-                if (headerClicked.Role != GridViewColumnHeaderRole.Padding)
-                {
-                    if (headerClicked != _lastHeaderClicked)
-                    {
-                        direction = ListSortDirection.Ascending;
-                    }
-                    else
-                    {
-                        if (_lastDirection == ListSortDirection.Ascending)
-                        {
-                            direction = ListSortDirection.Descending;
-                        }
-                        else
-                        {
-                            direction = ListSortDirection.Ascending;
-                        }
-                    }
-
-                    var columnBinding = headerClicked.Column.DisplayMemberBinding as Binding;
-                    var sortBy = columnBinding?.Path.Path ?? headerClicked.Column.Header as string;
-
-                    Sort(sortBy, direction);
-
-                    if (direction == ListSortDirection.Ascending)
-                    {
-                        headerClicked.Column.HeaderTemplate =
-                          Resources["HeaderTemplateArrowUp"] as DataTemplate;
-                    }
-                    else
-                    {
-                        headerClicked.Column.HeaderTemplate =
-                          Resources["HeaderTemplateArrowDown"] as DataTemplate;
-                    }
-
-                    // Remove arrow from previously sorted header
-                    if (_lastHeaderClicked != null && _lastHeaderClicked != headerClicked)
-                    {
-                        _lastHeaderClicked.Column.HeaderTemplate = null;
-                    }
-
-                    _lastHeaderClicked = headerClicked;
-                    _lastDirection = direction;
-                }
-            }
-        }
-        private void Sort(string sortBy, ListSortDirection direction)
-        {
-            ICollectionView dataView = CollectionViewSource.GetDefaultView(CPUs);
-            dataView.SortDescriptions.Clear();
-            SortDescription sd = new SortDescription(sortBy, direction);
-            dataView.SortDescriptions.Add(sd);
-            dataView.Refresh();
-        }
     }
 }

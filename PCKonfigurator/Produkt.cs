@@ -6,16 +6,60 @@ using System.Threading.Tasks;
 
 namespace PCKonfigurator
 {
-    class Produkt : IComparable<Produkt>
+    class Produkt
     {
-        public Int32 ID;
-        public String Hersteller;
-        public String Typ;
-        public decimal Preis;
+        private Int32 ID;
+        private String Hersteller;
+        private String Typ;
+        private decimal Preis;
 
-        public int CompareTo(Produkt other)
+        public Int32 id
         {
-            return Preis.CompareTo(other.Preis);
+            get
+            {
+                return this.ID;
+            }
+            set
+            {
+                this.ID = value;
+            }
         }
+
+        public String hersteller
+        {
+            get
+            {
+                return this.Hersteller;
+            }
+            set
+            {
+                this.Hersteller = value;
+            }
+        }
+
+        public String typ
+        {
+            get
+            {
+                return this.Typ;
+            }
+            set
+            {
+                this.Typ = value;
+            }
+        }
+
+        public decimal preis
+        {
+            get
+            {
+                return this.Preis;
+            }
+            set
+            {
+                this.Preis = value;
+            }
+        }
+
     }
 }

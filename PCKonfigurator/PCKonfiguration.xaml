@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PCKonfigurator"
         mc:Ignorable="d"
-        Title="PC-Konfigurator" MinHeight="768" MinWidth="1366"  Width="1366" Height="768" WindowState="Maximized">
+        Title="PC-Konfigurator" MinHeight="768" MinWidth="1366"  Width="1366" Height="768">
 
     <Grid>
         <Grid.Background>
@@ -28,17 +28,14 @@
                 <DropShadowEffect BlurRadius="19" ShadowDepth="1"/>
             </Grid.Effect>
             <TextBlock Text="PC Konfiguration" VerticalAlignment="Center" HorizontalAlignment="left"  FontSize="30" Foreground="White" Margin="120,0,0,0"/>
-            <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" HorizontalAlignment="left" Foreground="White" Height="70" Width="90" MouseLeftButtonDown="PackIcon_MouseLeftButtonDown" Cursor="Hand"/>
+            <materialDesign:PackIcon Kind="RobotAngryOutline" VerticalAlignment="Center" HorizontalAlignment="left" Foreground="DeepPink" Background="Aquamarine" Height="70" Width="80" MouseLeftButtonDown="PackIcon_MouseLeftButtonDown" Margin="5,0,0,0" Cursor="Hand" BorderBrush="DimGray" BorderThickness="4"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBox materialDesign:HintAssist.Hint="SEARCH" Foreground="Black" Width="400" FontSize="20" Background="LightBlue" Text=""/>
-                <materialDesign:PackIcon Kind="Magnify" Foreground="White" Width="25" Height="25" VerticalAlignment="Center" Margin="5"/>
+                <materialDesign:PackIcon Name="BtnSearch" Kind="ArrowBackCircle" Foreground="White" Width="40" Height="40" MouseLeftButtonDown="PackIcon_MouseLeftButtonDown" Cursor="Hand"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="50 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <materialDesign:PackIcon Kind="Cart" Foreground="White" Width="25" Height="25" VerticalAlignment="Center" Margin="5"/>
                 <TextBlock Name="EinkaufswagenAnzahl" Foreground="White" Width="25" FontSize="18" Text="0" VerticalAlignment="Center" />
             </StackPanel>
-            <!--<Button Height="53" FontSize="30" Content="Button" Margin="540,0,583,0" Click="Button_Click">
-            </Button>-->
         </Grid>
 
 
@@ -69,8 +66,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -79,7 +76,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Arbeitsspeicher" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Arbeitsspeicher_MouseLeftButtonDown_1"/>
+                        <Rectangle x:Name="Arbeitsspeicher" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Arbeitsspeicher_MouseLeftButtonDown_1"/>
                     </Viewbox>
                     <TextBlock Text ="Arbeitsspeicher" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="ArbeitsspeicherBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -92,8 +89,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -102,7 +99,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Betriebssystem" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Betriebssystem_MouseLeftButtonDown_1" />
+                        <Rectangle x:Name="Betriebssystem" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Betriebssystem_MouseLeftButtonDown_1" />
                     </Viewbox>
                     <TextBlock Text ="Betriebssytem" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="BetriebssystemBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -115,8 +112,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -125,7 +122,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Mainboard" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Mainboard_MouseLeftButtonDown_1" />
+                        <Rectangle x:Name="Mainboard" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Mainboard_MouseLeftButtonDown_1" />
                     </Viewbox>
                     <TextBlock Text ="Mainboard" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="MainboardBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -138,8 +135,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -148,7 +145,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="CPU" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="CPU_MouseLeftButtonDown_1"/>
+                        <Rectangle x:Name="CPU" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="CPU_MouseLeftButtonDown_1"/>
                     </Viewbox>
                     <TextBlock Text ="CPU" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="CPUBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -162,8 +159,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -172,7 +169,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Grafikkarte" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Grafikkarte_MouseLeftButtonDown_1"/>
+                        <Rectangle x:Name="Grafikkarte" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Grafikkarte_MouseLeftButtonDown_1"/>
                     </Viewbox>
                     <TextBlock Text ="Grafikkarte" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="GrafikkarteBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -185,8 +182,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -195,7 +192,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Prozessorlüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Prozessorlüfter_MouseLeftButtonDown_1" />
+                        <Rectangle x:Name="Prozessorlüfter" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Prozessorlüfter_MouseLeftButtonDown_1" />
                     </Viewbox>
                     <TextBlock Text ="Prozessorlüfter" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="ProzessorlüfterBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -208,8 +205,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -218,7 +215,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Festplatte" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Festplatte_MouseLeftButtonDown_1"/>
+                        <Rectangle x:Name="Festplatte" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Festplatte_MouseLeftButtonDown_1"/>
                     </Viewbox>
                     <TextBlock Text ="Festplatte" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="FestplatteBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -231,8 +228,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -241,7 +238,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Gehäuase" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Gehäuase_MouseLeftButtonDown"/>
+                        <Rectangle x:Name="Gehäuase" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Gehäuase_MouseLeftButtonDown"/>
                     </Viewbox>
                     <TextBlock Text ="Gehäuse" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="GehäuseBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -254,8 +251,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -264,7 +261,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Gehäuselüfter" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Gehäuselüfter_MouseLeftButtonDown_1"/>
+                        <Rectangle x:Name="Gehäuselüfter" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Gehäuselüfter_MouseLeftButtonDown_1"/>
                     </Viewbox>
                     <TextBlock Text ="Gehäuselüfter" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="GehäuselüfterBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
@@ -277,8 +274,8 @@
                     <Viewbox>
                         <Viewbox.Style>
                             <Style TargetType="Viewbox">
-                                <Setter Property="Width" Value="180"/>
-                                <Setter Property="Height" Value="180"/>
+                                <Setter Property="Width" Value="190"/>
+                                <Setter Property="Height" Value="190"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Width" Value="300"/>
@@ -287,7 +284,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Viewbox.Style>
-                        <Rectangle x:Name="Netzteil" Width="180" Height="180" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Netzteil_MouseLeftButtonDown_1"/>
+                        <Rectangle x:Name="Netzteil" Width="190" Height="190" Fill="LightGray" Cursor="Hand" MouseLeftButtonDown="Netzteil_MouseLeftButtonDown_1"/>
                     </Viewbox>
                     <TextBlock Text ="Netzteil" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,15,0,0"/>
                     <TextBlock Name="NetzteilBeschreibung" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>

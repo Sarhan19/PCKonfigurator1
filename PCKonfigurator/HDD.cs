@@ -18,23 +18,55 @@ namespace PCKonfigurator
 
         public HDD(Int32 _id, String _hersteller, String _typ, decimal _preis, Int16 _kapazität, Double _bauform, Int16 _rotationsgeschwindigkeit, String _name)
         {
-            this.ID = _id;
-            this.Hersteller = _hersteller;
-            this.Typ = _typ;
-            this.Preis = _preis;
+            this.id = _id;
+            this.hersteller = _hersteller;
+            this.typ = _typ;
+            this.preis = _preis;
             this.Bauform = _bauform;
             this.Rotationsgeschwindigkeit = _rotationsgeschwindigkeit;
             this.Kapazität = _kapazität;
             this.Name = _name;
         }
-        public override string ToString()
+
+        public Double bauform
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t\t" + Preis + "€\t" + Kapazität + "GB\t" + Bauform + "Z\t" + Rotationsgeschwindigkeit + "\t" + Name;
+            get
+            {
+                return this.Bauform;
+            }
+            set
+            {
+                this.Bauform = value;
+            }
+        }
+
+        public Int16 rotationsgeschwindigkeit
+        {
+            get
+            {
+                return this.Rotationsgeschwindigkeit;
+            }
+            set
+            {
+                this.Rotationsgeschwindigkeit = value;
+            }
+        }
+
+        public String name
+        {
+            get
+            {
+                return this.Name;
+            }
+            set
+            {
+                this.Name = value;
+            }
         }
 
         public string WriteFile()
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Kapazität + "GB\t" + Bauform + "\t" + Rotationsgeschwindigkeit + "\t" + Name;
+            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + Kapazität + "GB\t" + Bauform + "\t" + Rotationsgeschwindigkeit + "\t" + Name;
         }
     }
 }

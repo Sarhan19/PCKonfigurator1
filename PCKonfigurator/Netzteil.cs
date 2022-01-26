@@ -17,17 +17,40 @@ namespace PCKonfigurator
 
         public Netzteil(Int32 _id, String _hersteller, String _typ, decimal _preis, String _bauform, Int16 _leistung)
         {
-            this.ID = _id;
-            this.Hersteller = _hersteller;
-            this.Typ = _typ;
-            this.Preis = _preis;
+            this.id = _id;
+            this.hersteller = _hersteller;
+            this.typ = _typ;
+            this.preis = _preis;
             this.Bauform = _bauform;
             this.Leistung = _leistung;
         }
 
+        public String bauform
+        {
+            get
+            {
+                return this.Bauform;
+            }
+            set
+            {
+                this.Bauform = value;
+            }
+        }
+
+        public Int16 leistung
+        {
+            get
+            {
+                return this.Leistung;
+            }
+            set
+            {
+                this.Leistung = value;
+            }
+        }
         public string WriteFile()
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Bauform + "\t" + Leistung;
+            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + Bauform + "\t" + Leistung;
         }
     }
 }

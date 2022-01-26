@@ -18,22 +18,54 @@ namespace PCKonfigurator
 
         public Mainboard(Int32 _id, String _hersteller, String _typ, decimal _preis, String _formfaktor, String _chipsatz, String _name)
         {
-            this.ID = _id;
-            this.Hersteller = _hersteller;
-            this.Typ = _typ;
-            this.Preis = _preis;
+            this.id = _id;
+            this.hersteller = _hersteller;
+            this.typ = _typ;
+            this.preis = _preis;
             this.Formfaktor = _formfaktor;
             this.Chipsatz = _chipsatz;
             this.Name = _name;
         }
-        public override string ToString()
+
+        public String formfaktor
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t\t" + Preis + "€\t" + Formfaktor + "\t" + Chipsatz + "\t" + Name;
+            get
+            {
+                return this.Formfaktor;
+            }
+            set
+            {
+                this.Formfaktor = value;
+            }
+        }
+
+        public String chipsatz
+        {
+            get
+            {
+                return this.Chipsatz;
+            }
+            set
+            {
+                this.Chipsatz = value;
+            }
+        }
+
+        public String name
+        {
+            get
+            {
+                return this.Name;
+            }
+            set
+            {
+                this.Name = value;
+            }
         }
 
         public string WriteFile()
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Formfaktor + "\t" + Chipsatz + "\t" + Name;
+            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + Formfaktor + "\t" + Chipsatz + "\t" + Name;
         }
 
     }

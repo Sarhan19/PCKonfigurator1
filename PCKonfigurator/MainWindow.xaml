@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PCKonfigurator"
         mc:Ignorable="d"
-        Title="PC-Konfigurator" Height="768" Width="1366" WindowState="Maximized">
+        Title="PC-Konfigurator" Height="768" Width="1366">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/2098480.png" Opacity="0.5"/>

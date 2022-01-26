@@ -16,16 +16,28 @@ namespace PCKonfigurator
 
         public Betriebssystem(Int32 _id, String _hersteller, String _typ, decimal _preis, Int16 _architektur)
         {
-            this.ID = _id;
-            this.Hersteller = _hersteller;
-            this.Typ = _typ;
-            this.Preis = _preis;
+            this.id = _id;
+            this.hersteller = _hersteller;
+            this.typ = _typ;
+            this.preis = _preis;
             this.Architektur = _architektur;
+        }
+
+        public Int16 architektur
+        {
+            get
+            {
+                return this.Architektur;
+            }
+            set
+            {
+                this.Architektur = value;
+            }
         }
 
         public string WriteFile()
         {
-            return ID + "\t" + Hersteller + "\t" + Typ + "\t" + Preis + "€\t" + Architektur;
+            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + Architektur;
         }
     }
 }
