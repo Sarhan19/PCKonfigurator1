@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="PC-Konfigurator" MinHeight="768" MinWidth="1366"  Width="1366" Height="768">
 
-    <Grid>
+    <Grid Name="MainGrid">
         <Grid.Background>
             <ImageBrush ImageSource="Assets/2098480.png" Opacity="0.4"/>
         </Grid.Background>
@@ -30,11 +30,12 @@
             <TextBlock Text="PC Konfiguration" VerticalAlignment="Center" HorizontalAlignment="left"  FontSize="30" Foreground="White" Margin="120,0,0,0"/>
             <materialDesign:PackIcon Kind="RobotAngryOutline" VerticalAlignment="Center" HorizontalAlignment="left" Foreground="DeepPink" Background="Aquamarine" Height="70" Width="80" MouseLeftButtonDown="PackIcon_MouseLeftButtonDown" Margin="5,0,0,0" Cursor="Hand" BorderBrush="DimGray" BorderThickness="4"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <materialDesign:PackIcon Name="BtnSearch" Kind="ArrowBackCircle" Foreground="White" Width="40" Height="40" MouseLeftButtonDown="PackIcon_MouseLeftButtonDown" Cursor="Hand"/>
+                <materialDesign:PackIcon Name="BtnBack" Kind="ArrowBackCircle" Foreground="White" Width="40" Height="40" MouseLeftButtonDown="PackIcon_MouseLeftButtonDown" Cursor="Hand" Background="LightBlue"/>
+                <materialDesign:PackIcon Name="BtnOff" Kind="Shutdown" Foreground="White" Width="40" Height="40" MouseLeftButtonDown="BtnOff_MouseLeftButtonDown" Cursor="Hand" Background="LightBlue" Margin="35,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="50 0" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <materialDesign:PackIcon Kind="Cart" Foreground="White" Width="25" Height="25" VerticalAlignment="Center" Margin="5"/>
-                <TextBlock Name="EinkaufswagenAnzahl" Foreground="White" Width="25" FontSize="18" Text="0" VerticalAlignment="Center" />
+                <materialDesign:PackIcon Kind="Cart" Foreground="White" Width="40" Height="40" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Name="EinkaufswagenAnzahl" Foreground="White" Width="30" FontSize="30" Text="0" VerticalAlignment="Center" />
             </StackPanel>
         </Grid>
 

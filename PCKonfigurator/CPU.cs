@@ -65,7 +65,7 @@ namespace PCKonfigurator
 
         public string WriteFile()
         {
-            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + Sockel + "\t" + Kerne + "\t" + Name;
+            return $"{id}\t{hersteller}\t{typ}\t{preis}€\t{Sockel}\t{Kerne}\t{Name}";
         }
     }
 }

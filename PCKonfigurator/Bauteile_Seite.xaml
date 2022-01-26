@@ -14,9 +14,10 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
                 <DataGridTextColumn Header="Hersteller" Binding="{Binding hersteller}"/>
                 <DataGridTextColumn Header="Typ" Binding="{Binding typ}"/>
-                <DataGridTextColumn Header="Preis" Binding="{Binding preis}"/>
+                <DataGridTextColumn Header="Preis in €" Binding="{Binding preis}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+        <TextBlock Name="TxtBlockHinweis" HorizontalAlignment="Center" Margin="0,0,0,13" Text="Hinweis: Ein Preis von -1.00 € bedeutet, dass das Bauteil nicht verfügbar ist!" FontSize="18" VerticalAlignment="Bottom"/>
+
     </Grid>
 </Page>

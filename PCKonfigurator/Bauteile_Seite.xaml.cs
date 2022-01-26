@@ -24,13 +24,17 @@ namespace PCKonfigurator
     /// </summary>
     public partial class Bauteile_Seite : Page
     {
-        List<Arbeitsspeicher> RAMs = new List<Arbeitsspeicher>();
-        List<Prozessorlüfter> CPULuefter = new List<Prozessorlüfter>();
-        List<Mainboard> Mainboards = new List<Mainboard>();
-        List<Grafikkarte> GPUs = new List<Grafikkarte>();
-        List<HDD> HDDs = new List<HDD>();
-        List<SSD> SSDs = new List<SSD>();
-        List<CPU> CPUs = new List<CPU>();
+        private List<Arbeitsspeicher> RAMs = new List<Arbeitsspeicher>();
+        private List<Prozessorlüfter> CPULuefter = new List<Prozessorlüfter>();
+        private List<Mainboard> Mainboards = new List<Mainboard>();
+        private List<Grafikkarte> GPUs = new List<Grafikkarte>();
+        private List<HDD> HDDs = new List<HDD>();
+        private List<SSD> SSDs = new List<SSD>();
+        private List<CPU> CPUs = new List<CPU>();
+        private List<Gehäuselüfter> GHLuefter = new List<Gehäuselüfter>();
+        private List<Gehäuse> GHs = new List<Gehäuse>();
+        private List<Netzteil> NTs = new List<Netzteil>();
+        private List<Betriebssystem> OSs = new List<Betriebssystem>();
         private SqlConnection connection;
 
         public Bauteile_Seite()
@@ -64,7 +68,7 @@ namespace PCKonfigurator
                         textColumn.Binding = new Binding("name");
                         DataGridTabellen.Columns.Add(textColumn);
                         foreach (CPU cpu in CPUs)
-                        {
+                        {                            
                             DataGridTabellen.Items.Add(cpu);
                         }                        
                         break;
@@ -75,7 +79,7 @@ namespace PCKonfigurator
                         textColumn.Binding = new Binding("anzahlSpeichermodule");
                         DataGridTabellen.Columns.Add(textColumn);
                         textColumn = new DataGridTextColumn();
-                        textColumn.Header = "Speicherkapazität";
+                        textColumn.Header = "Speicherkapazität (GB)";
                         textColumn.Binding = new Binding("speicherkapazität");
                         DataGridTabellen.Columns.Add(textColumn);
                         foreach(Arbeitsspeicher arbeitsspeicher in RAMs)
@@ -113,7 +117,7 @@ namespace PCKonfigurator
                         textColumn.Binding = new Binding("name");
                         DataGridTabellen.Columns.Add(textColumn);
                         foreach(Mainboard mainboard in Mainboards)
-                        {
+                        {                            
                             DataGridTabellen.Items.Add(mainboard);
                         }
                         break;
@@ -124,7 +128,7 @@ namespace PCKonfigurator
                         textColumn.Binding = new Binding("grafikchip");
                         DataGridTabellen.Columns.Add(textColumn);
                         textColumn = new DataGridTextColumn();
-                        textColumn.Header = "Speicherkapazität";
+                        textColumn.Header = "Speicherkapazität (GB)";
                         textColumn.Binding = new Binding("speicherkapazität");
                         DataGridTabellen.Columns.Add(textColumn);
                         textColumn = new DataGridTextColumn();
@@ -133,24 +137,29 @@ namespace PCKonfigurator
                         DataGridTabellen.Columns.Add(textColumn);
                         foreach(Grafikkarte grafikkarte in GPUs)
                         {
+                            
                             DataGridTabellen.Items.Add(grafikkarte);
                         }
                         break;
                     case "HDD":
                         GetHDDList(cmd);
                         textColumn = new DataGridTextColumn();
-                        textColumn.Header = "Bauform";
+                        textColumn.Header = "Bauform (Zoll)";
                         textColumn.Binding = new Binding("bauform");
                         DataGridTabellen.Columns.Add(textColumn);
                         textColumn = new DataGridTextColumn();
-                        textColumn.Header = "Rotationsgeschwindigkeit";
+                        textColumn.Header = "Rotationsgeschwindigkeit (U/min)";
                         textColumn.Binding = new Binding("rotationsgeschwindigkeit");
                         DataGridTabellen.Columns.Add(textColumn);
                         textColumn = new DataGridTextColumn();
                         textColumn.Header = "Name";
                         textColumn.Binding = new Binding("name");
                         DataGridTabellen.Columns.Add(textColumn);
-                        foreach(HDD hdd in HDDs)
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Kapazität (GB)";
+                        textColumn.Binding = new Binding("kapazität");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach (HDD hdd in HDDs)
                         {
                             DataGridTabellen.Items.Add(hdd);
                         }
@@ -165,10 +174,87 @@ namespace PCKonfigurator
                         textColumn.Header = "Name";
                         textColumn.Binding = new Binding("name");
                         DataGridTabellen.Columns.Add(textColumn);
-                        foreach(SSD ssd in SSDs)
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Kapazität (GB)";
+                        textColumn.Binding = new Binding("kapazität");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach (SSD ssd in SSDs)
                         {
                             DataGridTabellen.Items.Add(ssd);
                         }
+                        break;
+                    case "Gehäuselüfter":
+                        GetGHLuefterList(cmd);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Breite (mm)";
+                        textColumn.Binding = new Binding("breite");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Farbe";
+                        textColumn.Binding = new Binding("farbe");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Gehäuselüfter gehäuselüfter in GHLuefter)
+                        {
+                            DataGridTabellen.Items.Add(gehäuselüfter);
+                        }
+                        break;
+                    case "Gehäuse":
+                        GetGHList(cmd);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Mainboard Formfaktor";
+                        textColumn.Binding = new Binding("mainboardFormfaktor");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Netzteil Formfaktor";
+                        textColumn.Binding = new Binding("netzteilFormfaktor");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Farbe";
+                        textColumn.Binding = new Binding("farbe");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Gehäuse gehäuse in GHs)
+                        {
+                            DataGridTabellen.Items.Add(gehäuse);
+                        }
+                        break;
+                    case "Netzteil":
+                        GetNTList(cmd);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Bauform";
+                        textColumn.Binding = new Binding("bauform");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Leistung (Watt)";
+                        textColumn.Binding = new Binding("leistung");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Name";
+                        textColumn.Binding = new Binding("name");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Netzteil netzteil in NTs)
+                        {
+                            DataGridTabellen.Items.Add(netzteil);
+                        }
+                        break;
+                    case "Betriebssystem":
+                        GetOSList(cmd);
+                        textColumn = new DataGridTextColumn();
+                        textColumn.Header = "Architektur (Bit)";
+                        textColumn.Binding = new Binding("architektur");
+                        DataGridTabellen.Columns.Add(textColumn);
+                        foreach(Betriebssystem betriebssystem in OSs)
+                        {                            
+                            DataGridTabellen.Items.Add(betriebssystem);
+                        }                                                
+                        TxtBlockHinweis.Text = "Hinweis: Betriebssysteme mit Architektur -1 können sowohl 32-, als auch 64-Bit-Betrieb.";                        
                         break;
                     default:
                         break;
@@ -177,6 +263,65 @@ namespace PCKonfigurator
         }
 
 
+
+        private void GetOSList(SqlCommand cmd)
+        {
+            OSs.Clear();
+            cmd.CommandText = "SELECT * FROM Betriebssystem";
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Betriebssystem os = new Betriebssystem(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), (Int16)reader.GetInt32(4));
+                    OSs.Add(os);
+                }
+                reader.Close();
+            }
+        }
+
+        private void GetNTList(SqlCommand cmd)
+        {
+            NTs.Clear();
+            cmd.CommandText = "SELECT * FROM Netzteil";
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Netzteil nt = new Netzteil(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), reader.GetString(4), (Int16)reader.GetInt32(5), reader.GetString(6));
+                    NTs.Add(nt);
+                }
+                reader.Close();
+            }
+        }
+        private void GetGHList(SqlCommand cmd)
+        {
+            GHs.Clear();
+            cmd.CommandText = "SELECT * FROM Gehause";
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Gehäuse gh = new Gehäuse(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7));
+                    GHs.Add(gh);
+                }
+                reader.Close();
+            }
+        }
+
+        private void GetGHLuefterList(SqlCommand cmd)
+        {
+            GHLuefter.Clear();
+            cmd.CommandText = "SELECT * FROM Gehauseluefter";
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Gehäuselüfter ghl = new Gehäuselüfter(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), (Int16)reader.GetInt32(4), reader.GetString(5), reader.GetString(6));
+                    GHLuefter.Add(ghl);
+                }
+                reader.Close();
+            }
+        }
 
         private void GetSSDList(SqlCommand cmd)
         {
@@ -291,9 +436,19 @@ namespace PCKonfigurator
             windows = Application.Current.Windows;
             Window[] WINs = new Window[2];
             windows.CopyTo(WINs, 0);
-            PCKonfiguration oldWindow = (PCKonfiguration)WINs[0];
-            oldWindow.KonfigSchreiben(addition);
-            MessageBox.Show("Neues Bauteil ausgewählt!");
+            PCKonfiguration oldWindow = (PCKonfiguration)WINs[0];            
+            Produkt produkt = (Produkt)addition;
+            if(produkt.preis < 0)
+            {
+                MessageBox.Show("Bauteil ist nicht verfügbar!", "WARNUNG!");
+                return;
+            }
+            else
+            {
+                oldWindow.KonfigSchreiben(addition);
+                MessageBox.Show("Neues Bauteil ausgewählt!", "Auswahl");
+            }
+            
         }
         
 

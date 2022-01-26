@@ -11,12 +11,13 @@ namespace PCKonfigurator
         internal String MainboardFormfaktor;
         internal String NetzteilFormfaktor;
         internal String Farbe;
+        internal String Name;
 
         public Gehäuse()
-        {            
+        {
         }
 
-        public Gehäuse(Int32 _id, String _hersteller, String _typ, decimal _preis, String _mainboardFormfaktor, String _netzteilFormfaktor, String _farbe)
+        public Gehäuse(Int32 _id, String _hersteller, String _typ, decimal _preis, String _mainboardFormfaktor, String _netzteilFormfaktor, String _farbe, String _name)
         {
             this.id = _id;
             this.hersteller = _hersteller;
@@ -25,6 +26,7 @@ namespace PCKonfigurator
             this.MainboardFormfaktor = _mainboardFormfaktor;
             this.NetzteilFormfaktor = _netzteilFormfaktor;
             this.Farbe = _farbe;
+            this.Name = _name;
         }
 
         public String mainboardFormfaktor
@@ -63,9 +65,21 @@ namespace PCKonfigurator
             }
         }
 
+        public String name
+        {
+            get
+            {
+                return this.Name;
+            }
+            set
+            {
+                this.name = value;
+            }
+        }
+
         public string WriteFile()
         {
-            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + MainboardFormfaktor + "\t" + NetzteilFormfaktor + "\t" + Farbe;
+            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + MainboardFormfaktor + "\t" + NetzteilFormfaktor + "\t" + Farbe + "\t" + Name;
         }
 
     }

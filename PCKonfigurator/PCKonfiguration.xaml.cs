@@ -251,13 +251,13 @@ namespace PCKonfigurator
 
         public void KonfigSchreiben(object add)
         {
-            Type type = add.GetType();
+            Type type = add.GetType();            
             if (type == typeof(CPU))
-            {
-                konfiguration.Cpu = (CPU)add;
+            {                
+                konfiguration.Cpu = (CPU)add;                     
             }
             else if (type == typeof(Arbeitsspeicher))
-            {
+            {                              
                 konfiguration.ArbeitsSpeicher = (Arbeitsspeicher)add;
             }
             else if (type == typeof(Betriebssystem))
@@ -406,11 +406,11 @@ namespace PCKonfigurator
                         }
                         if (i == 4)
                         {
-                            KonfigSchreiben(new Gehäuse(id, hersteller, typ, preis, bauteil[5], bauteil[6], bauteil[7]));
+                            KonfigSchreiben(new Gehäuse(id, hersteller, typ, preis, bauteil[5], bauteil[6], bauteil[7], bauteil[8]));
                         }
                         if (i == 5)
                         {
-                            KonfigSchreiben(new Gehäuselüfter(id, hersteller, typ, preis, Convert.ToDouble(bauteil[5]), bauteil[6]));
+                            KonfigSchreiben(new Gehäuselüfter(id, hersteller, typ, preis, Convert.ToInt16(bauteil[5]), bauteil[6], bauteil[7]));
                         }
                         if (i == 6)
                         {
@@ -422,7 +422,7 @@ namespace PCKonfigurator
                         }
                         if (i == 8)
                         {
-                            KonfigSchreiben(new Netzteil(id, hersteller, typ, preis, bauteil[5], Convert.ToInt16(bauteil[6])));
+                            KonfigSchreiben(new Netzteil(id, hersteller, typ, preis, bauteil[5], Convert.ToInt16(bauteil[6]), bauteil[7]));
                         }
                         if (i == 9)
                         {
@@ -594,6 +594,10 @@ namespace PCKonfigurator
             BauteileAktualisieren();
         }
 
+        private void BtnOff_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

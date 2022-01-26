@@ -10,12 +10,13 @@ namespace PCKonfigurator
     {
         internal String Bauform;
         internal Int16 Leistung;
+        internal String Name;
 
         public Netzteil()
         {
         }
 
-        public Netzteil(Int32 _id, String _hersteller, String _typ, decimal _preis, String _bauform, Int16 _leistung)
+        public Netzteil(Int32 _id, String _hersteller, String _typ, decimal _preis, String _bauform, Int16 _leistung, String _name)
         {
             this.id = _id;
             this.hersteller = _hersteller;
@@ -23,7 +24,9 @@ namespace PCKonfigurator
             this.preis = _preis;
             this.Bauform = _bauform;
             this.Leistung = _leistung;
+            this.Name = _name;
         }
+
 
         public String bauform
         {
@@ -48,9 +51,22 @@ namespace PCKonfigurator
                 this.Leistung = value;
             }
         }
-        public string WriteFile()
+
+        public String name
         {
-            return id + "\t" + hersteller + "\t" + typ + "\t" + preis + "€\t" + Bauform + "\t" + Leistung;
+            get
+            {
+                return this.Name;
+            }
+            set
+            {
+                this.Name = value;
+            }
+        }
+
+        public string WriteFile()
+        {            
+            return $"{id}\t{hersteller}\t{typ}\t{preis}\t{Bauform}\t{Leistung}\t{Name}";
         }
     }
 }
