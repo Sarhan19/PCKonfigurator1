@@ -157,20 +157,5 @@ namespace PCKonfigurator
         {
         }
 
-        internal Konfiguration(CPU _cpu, Mainboard _mainboard, Prozessorlüfter _prozessorlüfter, Arbeitsspeicher _arbeitsspeicher, Grafikkarte _grafikkarte, Festplatte _festplatte, Gehäuse _gehäuse, Gehäuselüfter _gehäuselüfter, Netzteil _netzteil, Betriebssystem _betriebssystem, decimal _preis = 0)
-        {
-            this.cpu = _cpu;
-            this.mainboard = _mainboard;
-            this.prozessorlüfter = _prozessorlüfter;
-            this.arbeitsspeicher = _arbeitsspeicher;
-            this.grafikkarte = _grafikkarte;
-            this.festplatte = _festplatte;
-            this.gehäuse = _gehäuse;
-            this.gehäuselüfter = _gehäuselüfter;
-            this.netzteil = _netzteil;
-            this.betriebssystem = _betriebssystem;
-            this.preis = _preis;
-        }
-
     }
 }
