@@ -42,6 +42,10 @@ namespace PCKonfigurator
             InitializeComponent();            
         }
 
+        /// <summary>
+        /// Zeigt die Tabelle des jeweiligen Bauteils an
+        /// </summary>
+        /// <param name="tabellenname">bestimmt welche Tabelle angezeigt wird</param>
         public void TabelleAnzeigen(string tabellenname, SqlConnection _connection)
         {
             connection = _connection;
@@ -262,8 +266,10 @@ namespace PCKonfigurator
             }
         }
 
-
-
+        /// <summary>
+        /// Aktualisiert die Betriebssystemliste OSs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetOSList(SqlCommand cmd)
         {
             OSs.Clear();
@@ -279,6 +285,10 @@ namespace PCKonfigurator
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die Netzzteilliste NTs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetNTList(SqlCommand cmd)
         {
             NTs.Clear();
@@ -293,6 +303,11 @@ namespace PCKonfigurator
                 reader.Close();
             }
         }
+
+        /// <summary>
+        /// Aktualisiert die Gehaeuseliste GHs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetGHList(SqlCommand cmd)
         {
             GHs.Clear();
@@ -308,6 +323,10 @@ namespace PCKonfigurator
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die Gehaeuseluefterliste GHLuefter
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetGHLuefterList(SqlCommand cmd)
         {
             GHLuefter.Clear();
@@ -323,6 +342,10 @@ namespace PCKonfigurator
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die SSD-Liste SSDs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetSSDList(SqlCommand cmd)
         {
             SSDs.Clear();
@@ -337,6 +360,11 @@ namespace PCKonfigurator
                 reader.Close();
             }
         }
+
+        /// <summary>
+        /// Aktualisiert die HDD-Liste HDDs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetHDDList(SqlCommand cmd)
         {
             HDDs.Clear();
@@ -352,6 +380,10 @@ namespace PCKonfigurator
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die Grafikkartenliste GPUs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetGPUList(SqlCommand cmd)
         {
             GPUs.Clear();
@@ -367,6 +399,10 @@ namespace PCKonfigurator
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die Mainboardliste Mainboards
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetMainboardList(SqlCommand cmd)
         {
             Mainboards.Clear();
@@ -382,6 +418,11 @@ namespace PCKonfigurator
             }
         }
 
+
+        /// <summary>
+        /// Aktualisiert die Prozessorluefterliste CPULuefter
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetCPULuefterList(SqlCommand cmd)
         {
             CPULuefter.Clear();
@@ -397,6 +438,10 @@ namespace PCKonfigurator
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die Arbeitsspeicherliste RAMs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetRAMList(SqlCommand cmd)
         {
             RAMs.Clear();
@@ -412,6 +457,10 @@ namespace PCKonfigurator
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die Prozessorliste CPUs
+        /// </summary>
+        /// <param name="cmd">SqlCommand der bestehenden Datenbank-Verbindung</param>
         private void GetCPUList(SqlCommand cmd)
         {
             CPUs.Clear();

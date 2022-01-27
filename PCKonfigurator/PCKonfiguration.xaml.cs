@@ -33,14 +33,23 @@ namespace PCKonfigurator
             this.Closed += new EventHandler(PCKonfiguration_Closed);
         }
 
-        private void PCKonfiguration_Closed(object sender, EventArgs e)
-        {
-            connection.Close();
-        }
+        /// <summary>
+        /// Oeffnet die SQL-Verbindung
+        /// </summary>
         private void OpenConnection()
         {
             connection = new SqlConnection(Properties.Settings.Default.DBPCTeileConnectionString);
             connection.Open();
+        }
+
+        /// <summary>
+        /// Schliesst die SQL-Verbindung, wenn Fesnter geschlossen wird
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PCKonfiguration_Closed(object sender, EventArgs e)
+        {
+            connection.Close();
         }
 
         private void Mainboard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
