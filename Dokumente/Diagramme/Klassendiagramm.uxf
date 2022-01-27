@@ -1,0 +1,201 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>290</x><y>990</y><w>610</w><h>120</h></coordinates><panel_attributes>_CPU_
+--
+~Sockel: String
+~Kerne: Int32
+~Name: String
+--
++CPU()
++CPU(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _sockel: String, _kerne: Int32, _name: String)
++WriteFile(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>1120</y><w>680</w><h>120</h></coordinates><panel_attributes>_Mainboard_
+--
+~Formfaktor: String
+~Chipsatz: String
+~Name: String
+--
++Mainboard()
++Mainboard(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _formfaktor: String, _chipsatz: String, _name: String)
++WriteFile(): string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1170</x><y>1430</y><w>210</w><h>110</h></coordinates><panel_attributes>__Produkt__
+--
+-ID: Int32
+-Hersteller: String
+-Typ: String
+-Preis: decimal
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>870</y><w>580</w><h>110</h></coordinates><panel_attributes>__Prozessorlüfter__
+--
+~Sockel: String
+~Name: String
+--
++Prozessorlüfter()
++Prozessorlüfter(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _sockel: String, _name: String)
++WriteFile: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>1250</y><w>720</w><h>110</h></coordinates><panel_attributes>__Arbeitsspeicher__
+--
+~AnzahlSpeichermodule: Int16
+~Speicherkapazität: Int16
+--
++Arbeitsspeicher()
++Arbeitsspeicher(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _anzahlSpeichermodule: Int16, _speicherkapazität: Int16)
++WriteFile(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>1380</y><w>720</w><h>120</h></coordinates><panel_attributes>__Grafikkarte__
+--
+~Grafikchip: String
+~Speicherkapazität: Int16
+~Name: String
+--
++Grafikkarte()
++Grafikkarte(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _grafikchip: String, _speicherkapazität: Int16, _name: String)
++WriteFile(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1050</x><y>1110</y><w>480</w><h>90</h></coordinates><panel_attributes>__Festplatte__
+--
+~Kapazität: Int16
+--
++Festplatte()
++Festplatte(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _kapazität: Int16)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>740</y><w>620</w><h>110</h></coordinates><panel_attributes>__SSD__
+--
+~Chiptyp: String
+~Name: String
+--
++SSD()
++SSD(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _kapazität: Int16, _chiptyp: String, _name: String)
++WriteFile(): string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1410</x><y>740</y><w>810</w><h>120</h></coordinates><panel_attributes>_HDD_
+--
+~Bauform: Double
+~Rotationsgeschwindigkeit: Int16
+~Name: String
+--
++HDD()
++HDD(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _kapazität: Int16, _bauform: Double, _rotationsgeschwindigkeit: Int16, _name: String)
++WriteFile(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1590</x><y>1250</y><w>860</w><h>140</h></coordinates><panel_attributes>__Gehäuse__
+--
+~MainboardFormfaktor: String
+~NetzteilFormfaktor: String
+~Farbe: String
+~Name: String
+--
++Gehäuse()
++Gehäuse(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _mainboardFormfaktor: String, _netzteilFormfaktor: String, _farbe: String, _name: String)
++WriteFile(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1590</x><y>990</y><w>640</w><h>120</h></coordinates><panel_attributes>__Gehäuselüfter__
+--
+~Breite: Int16
+~Farbe: String
+~Name: String
+--
++Gehäuselüfter()
++Gehäuselüfter(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _breite: Int16, _farbe: String, _name: String)
++WriteFile(): string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1590</x><y>1120</y><w>640</w><h>120</h></coordinates><panel_attributes>__Netzteil__
+--
+~Bauform: String
+~Leistung: Int16
+~Name: String
+--
++Netzteil()
++Netzteil(_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _bauform: String, _leistung: Int16, _name: String)
++WriteFile(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1590</x><y>890</y><w>520</w><h>90</h></coordinates><panel_attributes>__Betriebssystem__
+--
+~Architektur: Int16
+--
++Betriebssystem()
++Betriebssystem (_id: Int32, _hersteller: String, _typ: String, _preis: decimal, _architektur: Int16)
++WriteFile(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>101</x><y>190</y><w>360</w><h>90</h></coordinates><panel_attributes>__MainWindow__
+--
+
+--
++MainWindow()
+-BtnStartKonfig_Click(sender: object, e: RoutedEventArgs) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1190</x><y>500</y><w>210</w><h>220</h></coordinates><panel_attributes>__Konfiguration__
+--
+-cpu: CPU
+-mainboard: Mainboard
+-prozessorlüfter: Prozessorlüfter
+-arbeitsspeicher: Arbeitsspeicher
+-grafikkarte: Grafikkarte
+-festplatte: Festplatte
+-gehäuse: Gehäuse
+-gehäuselüfter: Gehäuselüfter
+-netzteil: Netzteil
+-betriebssystem: Betriebssystem
+-preis: decimal
+--
++Konfiguration()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1115</x><y>840</y><w>30</w><h>290</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;270;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1475</x><y>850</y><w>30</w><h>280</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;260;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1265</x><y>1190</y><w>30</w><h>260</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;240;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>890</x><y>880</y><w>300</w><h>580</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;10;150;10;150;560;280;560</additional_attributes></element><element><id>Relation</id><coordinates><x>890</x><y>1020</y><w>300</w><h>460</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;10;140;10;140;440;280;440</additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>1150</y><w>280</w><h>350</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;10;110;10;110;330;260;330</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>1280</y><w>270</w><h>240</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;10;90;10;90;220;250;220</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>1440</y><w>270</w><h>100</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;10;40;10;40;80;250;80</additional_attributes></element><element><id>Relation</id><coordinates><x>1370</x><y>930</y><w>240</w><h>530</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>220;10;170;10;170;510;10;510</additional_attributes></element><element><id>Relation</id><coordinates><x>1370</x><y>1030</y><w>240</w><h>450</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>220;10;180;10;180;430;10;430</additional_attributes></element><element><id>Relation</id><coordinates><x>1370</x><y>1150</y><w>240</w><h>350</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>220;10;190;10;190;330;10;330</additional_attributes></element><element><id>Relation</id><coordinates><x>1370</x><y>1320</y><w>240</w><h>200</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>220;10;200;10;200;180;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>1360</x><y>710</y><w>60</w><h>420</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>10;400;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>670</y><w>590</w><h>220</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>10;200;10;10;570;10</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>640</y><w>920</w><h>370</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>10;350;10;10;900;10</additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>610</y><w>970</w><h>530</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>10;510;10;10;950;10</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>580</y><w>1040</w><h>760</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>40;740;10;740;10;10;1020;10</additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>550</y><w>1090</w><h>920</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>90;900;10;900;10;10;1070;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1390</x><y>670</y><w>900</w><h>290</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>720;270;850;270;850;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1390</x><y>640</y><w>960</w><h>440</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>840;420;910;420;910;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1390</x><y>610</y><w>1020</w><h>580</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>840;560;970;560;970;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1390</x><y>580</y><w>1080</w><h>690</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>1030;670;1030;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1631</x><y>0</y><w>510</w><h>430</h></coordinates><panel_attributes>__Bauteile_Seite__
+--
+-RAMs: List&lt;Arbeitsspeicher&gt;
+-CPULuefter: List&lt;Prozessorlüfter&gt;
+-Mainboards: List&lt;Mainboard&gt;
+-GPUs: List&lt;Grafikkarte&gt;
+-HDDs: List&lt;HDD&gt;
+-SSDs: List&lt;SSD&gt;
+-CPUs: List&lt;CPU&gt;
+-GHLUefter: List&lt;Gehäuselüfter&gt;
+-GHs: List&lt;Gehäuse&gt;
+-NTs: List&lt;Netzteil&gt;
+-OSs: List&lt;Betriebssystem&gt;
+--
++Bauteile_Seite()
++TabelleAnzeigen(tabellenname: string) : void
+-GetOSList(cmd: SqlCommand) : void
+-GetNTList(cmd: SqlCommand) : void
+-GetGHList(cmd: SqlCommand) : void
+-GetGHLuefterList(cmd: SqlCommand) : void
+-GetSSDList(cmd: SqlCommand) : void
+-GetHDDList(cmd: SqlCommand) : void
+-GetGPUList(cmd: SqlCommand) : void
+-GetMainboardList(cmd: SqlCommand) : void
+-GetRAMList(cmd: SqlCommand) : void
+GetCPUList(cmd: SqlCommand) : void
+-Add_Bauteil() : void
+-DataGridBauteile_SelectionChanged(sender: object, e: SelectionChangedEventArgs) : void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1251</x><y>10</y><w>330</w><h>120</h></coordinates><panel_attributes>__FestplatteAuswahl__
+--
+
+--
++FestplatteAuswahl()
++Datenübertragung(title: string) : void
+-BtnHDD_Click(sender: object, e: RoutedEventArgs) : void
+-BtnSSD_Click(sender: object, e: RoutedEventArgs) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>601</x><y>10</y><w>510</w><h>530</h></coordinates><panel_attributes>__PCKonfiguration__
+--
+~konfiguration: Konfiguration
+-connection: SqlConnection
+--
++PCKonfiguration()
+-PCKonfiguration_Closed(sender: object, e: EventArgs) : void
+-OpenConnection() : void
+-Mainboard_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-CPU_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+- Grafikkarte_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-Prozessorlüfter_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-Arbeitsspeicher_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-Festplatte_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-Gehäuse_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-Gehäuselüfter_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-Netzteil_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-Betriebssystem_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+- PackIcon_MouseLeftButtonDown(sender: object, e: MouseButtonEventArgs) : void
+-BauteileAktuelisieren() : void
+-KonfigSchreiben(add: object) : void
+- BtnKonfigurationZurücksetzen_Click(sender: object, e: RoutedEventArgs) : void
+-BtnKonfigurationSpeichern_Click(sender: object, e: RoutedEventArgs) : void
+-BtnKonfigurationLaden_Click(sender: object, e: RoutedEventArgs) : void
+-KonfigurationslisteErzeugen() : List&lt;string&gt;
+-BtnKaufen_Click(sender: object, e: RoutedEventArgs) : void
+--Mainboard_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-CPU_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+- Grafikkarte_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-Prozessorlüfter_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-Arbeitsspeicher_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-Festplatte_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-Gehäuse_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-Gehäuselüfter_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-Netzteil_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void
+-Betriebssystem_MouseLeftButtonDown_1(sender: object, e: MouseButtonEventArgs) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>220</y><w>170</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1100</x><y>50</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1100</x><y>180</y><w>550</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1100</x><y>300</y><w>220</w><h>220</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;200;20;200;200</additional_attributes></element></diagram>
