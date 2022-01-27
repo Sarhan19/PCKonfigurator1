@@ -43,7 +43,7 @@ namespace PCKonfigurator
         }
 
         /// <summary>
-        /// Schliesst die SQL-Verbindung, wenn Fesnter geschlossen wird
+        /// Schliesst die SQL-Verbindung, wenn Fenster geschlossen wird
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -55,70 +55,70 @@ namespace PCKonfigurator
         private void Mainboard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Mainboard_Page = new Bauteile_Seite();
-            Mainboard_Page.TabelleAnzeigen("Mainboard", connection);            
+            Mainboard_Page.TabelleAnzeigen("Mainboard");            
             MidGridFrame.NavigationService.Navigate(Mainboard_Page);
         }
 
         private void CPU_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite CPU_Page = new Bauteile_Seite();
-            CPU_Page.TabelleAnzeigen("CPU", connection);
+            CPU_Page.TabelleAnzeigen("CPU");
             MidGridFrame.NavigationService.Navigate(CPU_Page);
         }
 
         private void Grafikkarte_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Grafikkarte_Page = new Bauteile_Seite();
-            Grafikkarte_Page.TabelleAnzeigen("Grafikkarte", connection);
+            Grafikkarte_Page.TabelleAnzeigen("Grafikkarte");
             MidGridFrame.NavigationService.Navigate(Grafikkarte_Page);
         }
 
         private void Prozessorlüfter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Prozessorlüfter_Page = new Bauteile_Seite();
-            Prozessorlüfter_Page.TabelleAnzeigen("Prozessorlüfter", connection);
+            Prozessorlüfter_Page.TabelleAnzeigen("Prozessorlüfter");
             MidGridFrame.NavigationService.Navigate(Prozessorlüfter_Page);
         }
 
         private void Arbeitsspeicher_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Arbeitsspeicher_Page = new Bauteile_Seite();
-            Arbeitsspeicher_Page.TabelleAnzeigen("Arbeitsspeicher", connection);
+            Arbeitsspeicher_Page.TabelleAnzeigen("Arbeitsspeicher");
             MidGridFrame.NavigationService.Navigate(Arbeitsspeicher_Page);
         }
 
         private void Festplatte_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             FestplatteAuswahl festplatteAuswahl = new FestplatteAuswahl();
-            festplatteAuswahl.Datenübertragung("Festplatte", connection);
+            festplatteAuswahl.Datenübertragung("Festplatte");
             MidGridFrame.NavigationService.Navigate(festplatteAuswahl);
         }
 
         private void Gehäuse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Gehäuse_Page = new Bauteile_Seite();
-            Gehäuse_Page.TabelleAnzeigen("Gehäuse", connection);
+            Gehäuse_Page.TabelleAnzeigen("Gehäuse");
             MidGridFrame.NavigationService.Navigate(Gehäuse_Page);
         }
 
         private void Gehäuselüfter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Gehäuselüfter_Page = new Bauteile_Seite();
-            Gehäuselüfter_Page.TabelleAnzeigen("Gehäuselüfter", connection);
+            Gehäuselüfter_Page.TabelleAnzeigen("Gehäuselüfter");
             MidGridFrame.NavigationService.Navigate(Gehäuselüfter_Page);
         }
 
         private void Netzteil_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Netzteil_Page = new Bauteile_Seite();
-            Netzteil_Page.TabelleAnzeigen("Netzteil", connection);
+            Netzteil_Page.TabelleAnzeigen("Netzteil");
             MidGridFrame.NavigationService.Navigate(Netzteil_Page);
         }
 
         private void Betriebssystem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Bauteile_Seite Betriebssystem_Page = new Bauteile_Seite();
-            Betriebssystem_Page.TabelleAnzeigen("Betriebssystem", connection);
+            Betriebssystem_Page.TabelleAnzeigen("Betriebssystem");
             MidGridFrame.NavigationService.Navigate(Betriebssystem_Page);
         }
 
@@ -127,7 +127,10 @@ namespace PCKonfigurator
             MidGridFrame.Content = null;            
         }
 
-
+        /// <summary>
+        /// Methode checkt in der Konfiguration, welche Bauteile enthalten sind, liest die Daten der enthaltenen Bauteile aus und schreibt diese in die entsprechende Stelle
+        /// auf der Hauptanzeige der Konfiguration
+        /// </summary>
         private void BauteileAktualisieren()
         {
             konfiguration.Preis = 0;
@@ -258,6 +261,11 @@ namespace PCKonfigurator
             EinkaufswagenAnzahl.Text = Convert.ToString(cart);
         }
 
+        /// <summary>
+        /// Methode bekommt das Objekt das in der Liste ausgewählt wurde übergeben und prüft dann nach, welchen Typs diese ist, daraufhin wird ein Objekt des entsprechenden Typs
+        /// zur Konfiguration hinzugefügt
+        /// </summary>
+        /// <param name="add">Aus der Liste zur Auswertung übergebenes Objekt</param>
         public void KonfigSchreiben(object add)
         {
             Type type = add.GetType();            
@@ -324,7 +332,7 @@ namespace PCKonfigurator
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Text file (*.txt)|*.txt";
             string dateiname = "";           
-            if (saveFileDialog.ShowDialog() == true)
+            if (saveFileDialog.ShowDialog() == true)        // Neues Dialogfenster zur Auswahl des Speicherorts wird geöffnet
             {
                 dateiname = saveFileDialog.FileName;
             }
@@ -333,7 +341,7 @@ namespace PCKonfigurator
                 StreamWriter sw;
                 sw = new StreamWriter(dateiname, false);
 
-                List<string> dateiinhalte = KonfigurationslisteErzeugen();
+                List<string> dateiinhalte = KonfigurationslisteErzeugen();  // Liste welche in Textdokument gedruckt wird, wird erzeugt
 
                 foreach (string s in dateiinhalte)
                 {
@@ -362,7 +370,7 @@ namespace PCKonfigurator
             {
                 dateiname = openFileDialog.FileName;
             }
-                        
+                   
             if (dateiname != string.Empty)
             {
                 int i = 0;
@@ -375,6 +383,7 @@ namespace PCKonfigurator
                         break;
                     }
                 }
+                // Ab hier wird das geladene Textdokument entsprechend formatiert, damit es ordentlich im Programm angezeigt werden kann
                 for (i = 0; i < 2; i++)
                 {
                     dateiinhalt.RemoveAt(0);
@@ -445,7 +454,10 @@ namespace PCKonfigurator
             
         }
 
-
+        /// <summary>
+        /// Methode erzeugt eine Liste, welche dann in einer anderen Funktion in ein Textdokument geschrieben werden kann.
+        /// </summary>
+        /// <returns>Erzeugte Liste mit Inhalt der Konfiguration</returns>
         private List<string> KonfigurationslisteErzeugen()
         {
             List<string> dateiinhalte = new List<string>();
@@ -455,7 +467,7 @@ namespace PCKonfigurator
             content = "Arbeitsspeicher:\t";
             if (konfiguration.ArbeitsSpeicher != null)
             {
-                content += konfiguration.ArbeitsSpeicher.WriteFile();
+                content += konfiguration.ArbeitsSpeicher.WriteFile();   //Jede Klasse eines Bauteils enthält eine entsprechend WriteFile()-Methode, welche das passende Format für das Schreiben der Daten in eine Textdatei erstellt
             }
             dateiinhalte.Add(content);
             content = "Betriebssystem:\t";
@@ -603,6 +615,7 @@ namespace PCKonfigurator
             BauteileAktualisieren();
         }
 
+        //Methode ermöglicht, dass das Fenster über einen extra dafür vorgesehenen Knopf geschlossen werden kann
         private void BtnOff_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();

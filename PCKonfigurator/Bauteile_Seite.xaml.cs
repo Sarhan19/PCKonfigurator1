@@ -35,7 +35,6 @@ namespace PCKonfigurator
         private List<Gehäuse> GHs = new List<Gehäuse>();
         private List<Netzteil> NTs = new List<Netzteil>();
         private List<Betriebssystem> OSs = new List<Betriebssystem>();
-        private SqlConnection connection;
 
         public Bauteile_Seite()
         {
@@ -46,9 +45,9 @@ namespace PCKonfigurator
         /// Zeigt die Tabelle des jeweiligen Bauteils an
         /// </summary>
         /// <param name="tabellenname">bestimmt welche Tabelle angezeigt wird</param>
-        public void TabelleAnzeigen(string tabellenname, SqlConnection _connection)
+        public void TabelleAnzeigen(string tabellenname)
         {
-            connection = _connection;
+            
             TxtBlkBauteil.Text = " " + tabellenname;
             using (var connection = new SqlConnection(Properties.Settings.Default.DBPCTeileConnectionString))
             using (var cmd = connection.CreateCommand())
@@ -477,15 +476,17 @@ namespace PCKonfigurator
         }
 
 
-
+        /// <summary>
+        /// Methode übergibt das aus der Liste ausgewählte Bauteil an die Seite PCKonfiguration, damit es zur Konfiguration hinzugefügt werden kann
+        /// </summary>
         private void Add_Bauteil()
         {            
             object addition = DataGridTabellen.SelectedItem;
             WindowCollection windows = new WindowCollection();
-            windows = Application.Current.Windows;
+            windows = Application.Current.Windows;  //Füllt die erzeugt WindowCollection mit allen Fenstern die gerade geöffnet sind
             Window[] WINs = new Window[2];
-            windows.CopyTo(WINs, 0);
-            PCKonfiguration oldWindow = (PCKonfiguration)WINs[0];            
+            windows.CopyTo(WINs, 0);    //Schreibt die WindowCollection in ein Array, wodurch auf die Fenster zugegriffen werden kann
+            PCKonfiguration oldWindow = (PCKonfiguration)WINs[0];   //Wählt dsa geöffnete Fenster aus dem Array aus, da nur ein Fenster geöffnet, mit Index 0
             Produkt produkt = (Produkt)addition;
             if(produkt.preis < 0)
             {
@@ -494,7 +495,7 @@ namespace PCKonfigurator
             }
             else
             {
-                oldWindow.KonfigSchreiben(addition);
+                oldWindow.KonfigSchreiben(addition);    //Gewähltes Objekt wird über spezielle Methode an die Konfiguration übergeben
                 MessageBox.Show("Neues Bauteil ausgewählt!", "Auswahl");
             }
             

@@ -26,25 +26,22 @@ namespace PCKonfigurator
             InitializeComponent();
         }
 
-        SqlConnection sqlConnection;
-
-        public void Datenübertragung(string title, SqlConnection connection)
+        public void Datenübertragung(string title)
         {
-            TxtBlkFestplatten.Text = title;
-            sqlConnection = connection;
+            TxtBlkFestplatten.Text = title;            
         }
 
         private void BtnHDD_Click(object sender, RoutedEventArgs e)
         {
             Bauteile_Seite Festplatte_Page = new Bauteile_Seite();
-            Festplatte_Page.TabelleAnzeigen("HDD", sqlConnection);
+            Festplatte_Page.TabelleAnzeigen("HDD");
             this.NavigationService.Navigate(Festplatte_Page);
         }
 
         private void BtnSSD_Click(object sender, RoutedEventArgs e)
         {
             Bauteile_Seite Festplatte_Page = new Bauteile_Seite();
-            Festplatte_Page.TabelleAnzeigen("SSD", sqlConnection);
+            Festplatte_Page.TabelleAnzeigen("SSD");
             this.NavigationService.Navigate(Festplatte_Page);
         }
     }
